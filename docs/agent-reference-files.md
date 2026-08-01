@@ -21,7 +21,7 @@ caveat).
 
 ## `categories.md`
 
-Lists the topic buckets (`history`, `science`, `geography`, `biography`,
+Lists the topic buckets (`history`, `science`, `geography`, `famous-people`,
 etc.) the agent rotates through to balance variety over time. Each bucket's
 slug is the exact string used in the `topic` field of `facts.jsonl`. See
 [`_data/categories.md`](../_data/categories.md) for the format and current

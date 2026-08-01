@@ -29,5 +29,5 @@ full read/write contract.
 - **science**: What is the largest planet in our solar system?
 - **history**: Which ancient wonder of the world was located in Giza, Egypt?
 - **geography**: What is the longest river in the world?
-- **biography**: Who developed the theory of general relativity?
+- **famous-people**: Who developed the theory of general relativity?
 - **science**: What gas do plants absorb from the atmosphere during photosynthesis?

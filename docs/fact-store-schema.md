@@ -38,7 +38,7 @@ without parsing or re-serializing everything already there.
 | `id`         | string | yes      | Unique fact ID, format `YYYY-MM-DD-N` (see below). |
 | `question`   | string | yes      | The trivia question text. |
 | `answer`     | string | yes      | The short answer. |
-| `topic`      | string | yes      | Category bucket, e.g. `history`, `science`, `geography`, `biography`. |
+| `topic`      | string | yes      | Category bucket, e.g. `history`, `science`, `geography`, `famous-people`. |
 | `date_added` | string | yes      | ISO 8601 date (`YYYY-MM-DD`) the fact was added; matches the date portion of `id`. |
 
 The full explanatory paragraph for each fact is **not** stored in the fact

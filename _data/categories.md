@@ -33,7 +33,7 @@ sciences.
 ### geography
 Places, physical features, countries, capitals, and geopolitical facts.
 
-### biography
+### famous-people
 Notable people — their lives, achievements, and historical significance.
 
 ### technology
