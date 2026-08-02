@@ -26,6 +26,29 @@ See `docs/agent-reference-files.md` and `docs/fact-store-schema.md` for the
 full format/contract of these files. This skill assumes those contracts;
 if either doc changes, update the steps below to match.
 
+## Context discipline
+
+`_data/facts.jsonl` grows by 5 lines every day and has no upper bound, so
+it is the one file in this skill that must never be read in full — doing
+so wastes tokens today and will eventually blow the context window
+outright. Every step below that touches it says exactly how to access it;
+the rule behind all of them is:
+
+- **Never** open/cat/read the whole file, and never pass it to a tool
+  without a keyword filter or line-count bound.
+- **Only** access it via a keyword search (grep/ripgrep for a specific
+  category slug or candidate question/answer term) or a bounded tail read
+  (the last N lines — records are always appended in date order, so recent
+  history is always at the end).
+- Keep N small. A handful of recent days (roughly the last 20-50 lines) is
+  enough context for both the topic-repeat check and the same-day
+  numbering check below — there is never a reason to pull more.
+
+`_data/categories.md` and `_data/rotation-state.md` are small and
+fixed/slow-growing by design (see their docs), so reading them in full is
+fine and expected — this discipline applies specifically to
+`_data/facts.jsonl`.
+
 ## Procedure
 
 Run these steps in order. Do not skip or reorder them.
@@ -41,24 +64,41 @@ Run these steps in order. Do not skip or reorder them.
    was the last one in the list. This is the day's category.
 4. Within that category, choose a specific, concrete topic (e.g. category
    `space` → topic "Jupiter", not "space" itself). Prefer a topic distinct
-   from ones already visible for this category in `_data/facts.jsonl` (grep
-   the file for the category's `topic` slug and skim recent `question`
-   values before picking, so you don't immediately repeat a subject).
+   from ones already visible for this category recently. Check this with a
+   **keyword grep** for the category's `topic` slug against
+   `_data/facts.jsonl` (e.g. `grep '"topic": "space"' _data/facts.jsonl`),
+   not a full-file read — see Context discipline above. If that turns up
+   many matches, it's enough to skim the most recent few.
 
 ### 2. Research the topic
 
 1. Perform web research on the chosen topic.
-2. From that research, select the 5 most useful, commonly known, or
-   influential facts about it — the kind of facts a well-informed
-   generalist would consider the highlights, not obscure trivia. (Example:
-   for "Jupiter," facts like its status as the largest planet, its Great
-   Red Spot, its moon count, its role in the early solar system, and the
-   Galileo/Juno missions are the kind of thing to surface.)
-3. Before finalizing each candidate fact, search `_data/facts.jsonl` for
-   similar `question`/`answer` text (simple keyword search) and swap out
-   any candidate that's a near-duplicate of something already published.
-   This is a best-effort check, not exhaustive deduplication — see
-   Known Limitations below.
+2. From that research, select the 5 most **notable and influential** facts
+   about it — but explicitly favor genuine learning over trivia the reader
+   almost certainly already knows. This is a daily "I actually learned
+   something" product, not an elementary-school quiz.
+   - Reject candidates that are common knowledge or the first thing anyone
+     would say about the topic (e.g., for "Jupiter": "it's the largest
+     planet" is too obvious to use).
+   - Prefer facts that are specific, surprising, mechanistic, or
+     little-known but still verifiably significant — the kind of thing
+     that makes someone say "huh, I didn't know that" rather than "sure,
+     everyone knows that." (For "Jupiter": its Great Red Spot has been
+     measurably shrinking for over a century, or its immense gravity
+     deflects a significant share of comets that would otherwise threaten
+     the inner solar system, are the right altitude — specific and
+     non-obvious, but still meaningfully important, not obscure trivia for
+     its own sake.)
+   - Still avoid true obscurity/trivia-for-trivia's-sake — each fact should
+     be something a reasonably informed person would recognize as
+     important once they read it, even if they didn't know it before.
+3. Before finalizing each candidate fact, check `_data/facts.jsonl` for
+   similar `question`/`answer` text via a **keyword grep** on distinctive
+   terms from the candidate (e.g. `grep -i "great red spot"
+   _data/facts.jsonl`), not a full-file read — see Context discipline
+   above. Swap out any candidate that's a near-duplicate of something
+   already published. This is a best-effort check, not exhaustive
+   deduplication — see Known Limitations below.
 
 ### 3. Write each fact
 
@@ -73,10 +113,13 @@ For each of the 5 facts, write:
 ### 4. Append to the fact store
 
 1. Determine today's date `YYYY-MM-DD`.
-2. Read `_data/facts.jsonl` to confirm no records already exist for
-   today's date (normally true, since this runs once per morning). If any
-   do, continue numbering after the highest existing sequence number for
-   today rather than restarting at 1.
+2. Confirm no records already exist for today's date by checking a
+   **bounded tail** of `_data/facts.jsonl` (e.g. the last 5-10 lines — new
+   records are always appended in date order, so today's, if any, would be
+   there), not a full-file read — see Context discipline above. This is
+   normally empty, since this runs once per morning; if it isn't, continue
+   numbering after the highest existing sequence number for today rather
+   than restarting at 1.
 3. Append 5 JSON lines to `_data/facts.jsonl`, one per fact, with:
    - `id`: `YYYY-MM-DD-1` through `YYYY-MM-DD-5` (or continuing the
      sequence per step 2).

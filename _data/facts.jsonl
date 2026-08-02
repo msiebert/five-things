@@ -3,8 +3,8 @@
 {"id": "2026-07-31-3", "question": "What is the longest river in the world?", "answer": "The Nile River", "topic": "geography", "date_added": "2026-07-31"}
 {"id": "2026-07-31-4", "question": "Who developed the theory of general relativity?", "answer": "Albert Einstein", "topic": "famous-people", "date_added": "2026-07-31"}
 {"id": "2026-07-31-5", "question": "What gas do plants absorb from the atmosphere during photosynthesis?", "answer": "Carbon dioxide", "topic": "science", "date_added": "2026-07-31"}
-{"id": "2026-08-02-1", "question": "Who invented the World Wide Web, and where?", "answer": "Tim Berners-Lee, at CERN", "topic": "technology", "date_added": "2026-08-02"}
-{"id": "2026-08-02-2", "question": "In what year did Tim Berners-Lee submit his original proposal for the World Wide Web?", "answer": "1989", "topic": "technology", "date_added": "2026-08-02"}
-{"id": "2026-08-02-3", "question": "What was the address of the first website ever published?", "answer": "info.cern.ch", "topic": "technology", "date_added": "2026-08-02"}
-{"id": "2026-08-02-4", "question": "What three core technologies did Berners-Lee combine to create the Web?", "answer": "HTML, URLs, and HTTP", "topic": "technology", "date_added": "2026-08-02"}
-{"id": "2026-08-02-5", "question": "In what year did CERN place the World Wide Web technology in the public domain, royalty-free?", "answer": "1993", "topic": "technology", "date_added": "2026-08-02"}
+{"id": "2026-08-02-1", "question": "What was unusual about the very first web browser, compared to browsers today?", "answer": "It was also a page editor (WYSIWYG), not just a viewer", "topic": "technology", "date_added": "2026-08-02"}
+{"id": "2026-08-02-2", "question": "How many commands did the original HTTP protocol (HTTP/0.9) support?", "answer": "One — GET, with no headers or status codes", "topic": "technology", "date_added": "2026-08-02"}
+{"id": "2026-08-02-3", "question": "What 1993 browser is usually credited with driving the Web's first mass adoption, years after it was invented?", "answer": "Mosaic", "topic": "technology", "date_added": "2026-08-02"}
+{"id": "2026-08-02-4", "question": "What warning did Tim Berners-Lee tape to the computer that ran the entire early Web?", "answer": "\"This machine is a server. DO NOT POWER IT DOWN!!\"", "topic": "technology", "date_added": "2026-08-02"}
+{"id": "2026-08-02-5", "question": "Who coined the term \"hypertext,\" the concept the Web was built on, and decades before it existed?", "answer": "Ted Nelson, in 1965", "topic": "technology", "date_added": "2026-08-02"}
