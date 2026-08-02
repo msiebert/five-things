@@ -18,7 +18,9 @@ specification.
 ## Agent reference data
 
 The daily generation agent also reads and writes two small markdown
-reference files, `_data/categories.md` and `_data/history.md`, to pick
-varied topics and avoid repeating recent subject matter. See
+reference files, `_data/categories.md` and `_data/rotation-state.md`, to
+rotate through varied topics without repeating recent subject matter (it
+also keyword-searches `_data/facts.jsonl` directly to avoid near-duplicate
+questions). See
 [`docs/agent-reference-files.md`](docs/agent-reference-files.md) for the
 full read/write contract.

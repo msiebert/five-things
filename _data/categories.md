@@ -13,13 +13,17 @@ full read/write contract.
   (hyphenate if needed), and stable once facts have been published under it.
 - A one- or two-sentence description follows each heading, giving the agent
   enough guidance to judge whether a candidate fact fits the bucket.
-- This file only defines the available buckets. It does not track rotation
-  state (which category was used last, how often each has been used) — that
-  bookkeeping is derived from [`history.md`](history.md) by the generation
-  skill at run time, not stored here.
+- **Heading order is rotation order.** The agent works through categories
+  sequentially, top to bottom, wrapping back to the top after the last one.
+  Reordering this list changes the rotation going forward.
+- This file only defines the available buckets, not where the rotation
+  currently is — that single piece of state lives in
+  [`rotation-state.md`](rotation-state.md), not here.
 - Categories may be added or reworded over time; removing a category that
   already has facts published under it should be avoided, since
   `docs/fact-store-schema.md` treats `topic` values as stable identifiers.
+  Adding a new category inserts it into the rotation at its position in this
+  list.
 
 ## Categories
 
