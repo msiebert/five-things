@@ -22,9 +22,13 @@ it needs to decide what to do lives in the repo files it reads below.
 | `_data/facts.jsonl` | yes (duplicate search) | appended |
 | `daily/YYYY-MM-DD/index.html` | no | created |
 
-See `docs/agent-reference-files.md` and `docs/fact-store-schema.md` for the
-full format/contract of these files. This skill assumes those contracts;
-if either doc changes, update the steps below to match.
+This skill is self-contained: the steps below already restate everything
+needed for a normal run, drawn from `docs/agent-reference-files.md` and
+`docs/fact-store-schema.md`. **Do not open those docs during a run** — they
+exist for humans maintaining this skill, not as required reading each
+morning. If a step below ever seems to contradict the live repo state,
+that's a signal this skill file is stale and needs a human to reconcile it
+against those docs, not something to resolve by reading them mid-run.
 
 ## Context discipline
 
@@ -187,16 +191,14 @@ Overwrite `_data/rotation-state.md` (do not append — replace the existing
 - `last_category` is today's category slug.
 - `last_run_date` is today's date (`YYYY-MM-DD`).
 
-This is the only step from the original spec that differs from a literal
-"append to a history file": the reference-file design (see
-`docs/agent-reference-files.md`) replaced an append-only history log with
-this fixed-size, overwrite-in-place rotation state, so step 6 here is an
-overwrite, not an append.
+(Historical note for maintainers, not needed during a run: this overwrite
+replaced an earlier append-only history-log design — see
+`docs/agent-reference-files.md`.)
 
 ## Known limitations
 
 These are explicitly out of scope for this skill and tracked as open
-questions elsewhere, per the design docs it depends on:
+questions elsewhere (no need to chase them down during a run):
 
 - **Duplicate avoidance** is a simple keyword search against
   `_data/facts.jsonl` (step 2.3) plus picking a topic distinct from
