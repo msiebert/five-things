@@ -3,8 +3,8 @@
 {"id": "2026-07-31-3", "question": "What is the longest river in the world?", "answer": "The Nile River", "topic": "geography", "date_added": "2026-07-31"}
 {"id": "2026-07-31-4", "question": "Who developed the theory of general relativity?", "answer": "Albert Einstein", "topic": "famous-people", "date_added": "2026-07-31"}
 {"id": "2026-07-31-5", "question": "What gas do plants absorb from the atmosphere during photosynthesis?", "answer": "Carbon dioxide", "topic": "science", "date_added": "2026-07-31"}
-{"id": "2026-08-02-1", "question": "What was unusual about the very first web browser, compared to browsers today?", "answer": "It was also a page editor (WYSIWYG), not just a viewer", "topic": "technology", "date_added": "2026-08-02"}
-{"id": "2026-08-02-2", "question": "How many commands did the original HTTP protocol (HTTP/0.9) support?", "answer": "One — GET, with no headers or status codes", "topic": "technology", "date_added": "2026-08-02"}
+{"id": "2026-08-02-1", "question": "What was the name of the first web browser, which doubled as a page editor?", "answer": "WorldWideWeb", "topic": "technology", "date_added": "2026-08-02"}
+{"id": "2026-08-02-2", "question": "What was the only HTTP method supported by the original HTTP/0.9 protocol?", "answer": "GET", "topic": "technology", "date_added": "2026-08-02"}
 {"id": "2026-08-02-3", "question": "What 1993 browser is usually credited with driving the Web's first mass adoption, years after it was invented?", "answer": "Mosaic", "topic": "technology", "date_added": "2026-08-02"}
-{"id": "2026-08-02-4", "question": "What warning did Tim Berners-Lee tape to the computer that ran the entire early Web?", "answer": "\"This machine is a server. DO NOT POWER IT DOWN!!\"", "topic": "technology", "date_added": "2026-08-02"}
-{"id": "2026-08-02-5", "question": "Who coined the term \"hypertext,\" the concept the Web was built on, and decades before it existed?", "answer": "Ted Nelson, in 1965", "topic": "technology", "date_added": "2026-08-02"}
+{"id": "2026-08-02-4", "question": "What computer brand ran the entire World Wide Web in its first months?", "answer": "NeXT", "topic": "technology", "date_added": "2026-08-02"}
+{"id": "2026-08-02-5", "question": "Who coined the term \"hypertext,\" the concept the Web was built on, decades before it existed?", "answer": "Ted Nelson", "topic": "technology", "date_added": "2026-08-02"}

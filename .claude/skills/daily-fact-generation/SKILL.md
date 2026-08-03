@@ -105,9 +105,19 @@ Run these steps in order. Do not skip or reorder them.
 For each of the 5 facts, write:
 
 - A short **question** (the trivia prompt).
-- A short **answer**.
+- A **one-word or one-name answer** — a single term, number, date, place,
+  or proper name (e.g. `Mosaic`, `GET`, `NeXT`, `Ted Nelson`, `1965`), not
+  a phrase or sentence. This matters for the Take-25 quiz UI, where users
+  type the answer in themselves — a short answer is quick to type and easy
+  to judge as right/wrong. If the most interesting angle on a fact would
+  naturally take a multi-word phrase to answer, reshape the *question* to
+  ask for the single compact term at the heart of it instead (e.g. ask
+  "What computer brand ran the whole early Web?" → `NeXT`, rather than
+  asking for a whole sentence about the setup) — the depth still goes in
+  the explanatory paragraph, not the answer field.
 - An **explanatory paragraph** (3-6 sentences) that gives real context —
-  not a one-word or one-sentence restatement of the answer. Assume the
+  this is where the interesting, non-obvious detail actually lives, since
+  the question/answer pair itself is now deliberately terse. Assume the
   reader wants to actually learn something, not just check a fact.
 
 ### 4. Append to the fact store
