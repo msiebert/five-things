@@ -5,3 +5,10 @@ description: >-
   from everything you've learned so far.
 baseurl: ""
 url: ""
+
+exclude:
+  - README.md
+  - docs/
+  - Gemfile
+  - Gemfile.lock
+
