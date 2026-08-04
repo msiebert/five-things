@@ -491,6 +491,24 @@ main {
   color: var(--muted);
 }
 
+.install-banner-action {
+  flex: none;
+  font: inherit;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.45rem 0.9rem;
+  border-radius: 2rem;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.install-banner-action[hidden] {
+  display: none;
+}
+
 .install-banner-dismiss {
   flex: none;
   font: inherit;
