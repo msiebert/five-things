@@ -24,7 +24,7 @@ signs in (see `assets/js/auth.js`, `ensureUserDoc`).
 |-------------------|-------|-------------|
 | `collected`        | array | Facts the user has explicitly saved via the "add to my collection" button. |
 | `recentlyMissed`    | array | Facts the user got wrong on a recent Take-25 quiz. |
-| `recentlyAdded`     | array | Facts added to the user's pool recently (e.g. via a new daily entry), used to weight the Take-25 draw. |
+| `recentlyAdded`     | array | Facts added to `collected` recently and not yet quizzed, used to weight the Take-25 draw. |
 
 Each array holds objects of the same shape:
 
