@@ -1,13 +1,14 @@
-// Client-side fetch + cache for the central fact store (_data/facts.jsonl).
-// Fetches the whole file once, caches it in localStorage, and serves lookups
-// by fact ID out of that cache. Re-fetches once per calendar day, since the
-// daily generation job appends to the store every morning.
+// Client-side fetch + cache for the central fact store
+// (assets/data/facts.jsonl). Fetches the whole file once, caches it in
+// localStorage, and serves lookups by fact ID out of that cache. Re-fetches
+// once per calendar day, since the daily generation job appends to the
+// store every morning.
 //
 // See docs/fact-store-client.md for the caching contract and
 // docs/fact-store-schema.md for the file format this parses.
 
 const SITE_ROOT = new URL("../..", import.meta.url);
-const FACT_STORE_URL = new URL("_data/facts.jsonl", SITE_ROOT).href;
+const FACT_STORE_URL = new URL("assets/data/facts.jsonl", SITE_ROOT).href;
 const CACHE_KEY = "five-things:fact-store";
 
 function today() {

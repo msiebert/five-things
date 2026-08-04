@@ -8,17 +8,26 @@ Take-25 quiz (full-file client-side cache, looked up by `id`).
 ## File location
 
 ```
-_data/facts.jsonl
+assets/data/facts.jsonl
 ```
 
-`_data/` is Jekyll's conventional home for structured data files. Note that
-`.jsonl` is **not** one of Jekyll's auto-loaded data formats (`.yml`,
-`.yaml`, `.json`, `.csv` are read automatically into `site.data`) — consuming
-this file from a Jekyll build requires an explicit plugin/generator or a
-build step that reads it directly. This is a deliberate tradeoff: JSONL's
-append-friendliness for the daily generation agent matters more than
-Jekyll's zero-config data auto-loading. Wiring up that consumption is future
-work, not part of this schema.
+It lives under `assets/`, alongside `assets/css` and `assets/js`, rather
+than in Jekyll's conventional `_data/` directory. `.jsonl` isn't one of
+Jekyll's auto-loaded data formats anyway (`.yml`, `.yaml`, `.json`, `.csv`
+are read automatically into `site.data`), so the `_data/` convention buys
+nothing here — and worse, `_data/` is a leading-underscore directory that
+Jekyll excludes from the built site by default. GitHub Pages' production
+build (the `github-pages` gem, pinned to an older Jekyll than this repo's
+own `Gemfile`) doesn't reliably honor an `include:` override to force an
+excluded `_data/*` file back into the static output, even though a locally
+installed newer Jekyll does — a real, previously-hit inconsistency between
+local preview and production. A plain path under `assets/` sidesteps the
+whole question: every Jekyll version copies it as an ordinary static file
+with zero special config, which is what the Take-25 quiz's client-side
+fetch (`assets/js/fact-store.js`) actually needs.
+`_data/categories.md` and `_data/rotation-state.md` stay in `_data/` — they
+are only ever read/written by the daily generation agent, never fetched by
+the browser, so the exclusion quirk doesn't apply to them.
 
 ## Format
 
@@ -118,5 +127,5 @@ Pretty-printed for readability:
 }
 ```
 
-See [`_data/facts.jsonl`](../_data/facts.jsonl) for a full sample file with
+See [`assets/data/facts.jsonl`](../assets/data/facts.jsonl) for a full sample file with
 five example records.
