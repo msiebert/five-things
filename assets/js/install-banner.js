@@ -1,5 +1,6 @@
 (function () {
   var DISMISS_KEY = "five-things-install-banner-dismissed";
+  var deferredPrompt = null;
 
   function isIosSafari() {
     var ua = window.navigator.userAgent;
@@ -31,20 +32,71 @@
     }
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    if (!isIosSafari() || isStandalone() || dismissed()) return;
+  // Chrome (desktop + Android) fires this instead of showing its own
+  // automatic prompt — we have to capture it and trigger .prompt() from
+  // our own UI, or the only way to install is digging through the menu.
+  window.addEventListener("beforeinstallprompt", function (event) {
+    event.preventDefault();
+    deferredPrompt = event;
+    showBanner("chrome");
+  });
 
-    var banner = document.querySelector(".install-banner");
+  window.addEventListener("appinstalled", function () {
+    hideBanner();
+    dismiss();
+  });
+
+  var banner, copyEl, actionButton, dismissButton, wired;
+
+  function showBanner(mode) {
+    if (isStandalone() || dismissed()) return;
+    if (!wired) wireBanner();
     if (!banner) return;
 
-    banner.classList.add("is-visible");
+    if (mode === "ios") {
+      copyEl.innerHTML = "Tap <strong>Share</strong>, then <strong>Add to Home Screen</strong>.";
+      actionButton.hidden = true;
+    } else {
+      copyEl.textContent = "Add it to your home screen for quick access.";
+      actionButton.hidden = false;
+    }
 
-    var dismissButton = banner.querySelector(".install-banner-dismiss");
+    banner.classList.add("is-visible");
+  }
+
+  function hideBanner() {
+    if (banner) banner.classList.remove("is-visible");
+  }
+
+  function wireBanner() {
+    wired = true;
+    banner = document.querySelector(".install-banner");
+    if (!banner) return;
+
+    copyEl = banner.querySelector(".install-banner-copy");
+    actionButton = banner.querySelector(".install-banner-action");
+    dismissButton = banner.querySelector(".install-banner-dismiss");
+
+    if (actionButton) {
+      actionButton.addEventListener("click", function () {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.finally(function () {
+          deferredPrompt = null;
+          hideBanner();
+        });
+      });
+    }
+
     if (dismissButton) {
       dismissButton.addEventListener("click", function () {
-        banner.classList.remove("is-visible");
+        hideBanner();
         dismiss();
       });
     }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    if (isIosSafari()) showBanner("ios");
   });
 })();
