@@ -1,7 +1,10 @@
 <article class="fact-card" id="{{ include.fact.id }}">
-  <p class="fact-topic">{{ include.fact.topic }}</p>
+  <div class="fact-card-head">
+    <span class="fact-number">{{ include.index }}</span>
+    <p class="fact-topic">{{ include.fact.topic }}</p>
+  </div>
   <h2 class="fact-question">{{ include.fact.question }}</h2>
-  <p class="fact-answer"><span class="fact-answer-label">Answer:</span> {{ include.fact.answer }}</p>
+  <p class="fact-answer"><span class="fact-answer-label">Answer</span> {{ include.fact.answer }}</p>
   <p class="fact-explanation">{{ include.fact.explanation }}</p>
   <button type="button" class="add-to-collection" data-fact-id="{{ include.fact.id }}">
     + Add to my collection
