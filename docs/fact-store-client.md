@@ -1,7 +1,7 @@
 # Fact Store Client (fetch/cache layer)
 
 `assets/js/fact-store.js` is the client-side module the Take-25 quiz uses to
-read the central fact store (`_data/facts.jsonl`, see
+read the central fact store (`assets/data/facts.jsonl`, see
 [`fact-store-schema.md`](fact-store-schema.md)) in the browser. There is no
 server-side component — it's a plain ES module that fetches a static file
 and caches the result.
@@ -17,16 +17,17 @@ issue. If usage patterns ever push well past that (e.g. much higher daily
 volume), the fetch-once approach would need revisiting, but nothing in the
 current design points that way.
 
-## Serving `_data/facts.jsonl` to the browser
+## Serving `assets/data/facts.jsonl` to the browser
 
-`_data/` is excluded from Jekyll's build output by default (any
-underscore-prefixed path is). `_config.yml` explicitly re-includes
-`_data/facts.jsonl` so the build copies it into `_site/_data/facts.jsonl`
-verbatim (Jekyll's data auto-loading doesn't apply to `.jsonl` files anyway,
-per the schema doc, so this is a plain static-file copy, not a data-reader
-pass). The client module resolves the file's URL relative to its own
-(`import.meta.url`), so it resolves correctly under the site's `baseurl`
-both locally (`bin/preview`) and on GitHub Pages.
+The fact store lives under `assets/`, not Jekyll's conventional `_data/`
+directory, specifically so it needs no special build configuration — see
+[`fact-store-schema.md`](fact-store-schema.md#file-location) for why (in
+short: a leading-underscore path's static-file inclusion is unreliable
+across the different Jekyll versions running locally vs. on GitHub Pages'
+production build, and `assets/` sidesteps that entirely). The client
+module resolves the file's URL relative to its own (`import.meta.url`), so
+it resolves correctly under the site's `baseurl` both locally
+(`bin/preview`) and on GitHub Pages.
 
 ## Caching and invalidation
 

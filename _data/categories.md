@@ -9,7 +9,7 @@ full read/write contract.
 
 - Each category is a level-3 (`###`) heading giving the category slug. The
   slug is the exact string written to the `topic` field in
-  [`_data/facts.jsonl`](facts.jsonl) — it must stay lowercase, single word
+  [`assets/data/facts.jsonl`](../assets/data/facts.jsonl) — it must stay lowercase, single word
   (hyphenate if needed), and stable once facts have been published under it.
 - A one- or two-sentence description follows each heading, giving the agent
   enough guidance to judge whether a candidate fact fits the bucket.

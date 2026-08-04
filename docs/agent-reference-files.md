@@ -13,11 +13,16 @@ _data/categories.md
 _data/rotation-state.md
 ```
 
-Placed alongside [`_data/facts.jsonl`](../_data/facts.jsonl) — `_data/` is
-already this repo's convention for the generation agent's flat data files,
-regardless of Jekyll's own auto-loading rules for the directory (see
-[`fact-store-schema.md`](fact-store-schema.md#file-location) for that
-caveat).
+`_data/` is this repo's convention for the generation agent's flat data
+files. The fact store itself, `facts.jsonl`, used to live here too but was
+moved to [`assets/data/facts.jsonl`](../assets/data/facts.jsonl) — it's the
+one file in this group the browser fetches directly, and `_data/`'s
+leading-underscore exclusion from Jekyll's build turned out not to be
+reliably overridable across the different Jekyll versions running locally
+vs. on GitHub Pages (see
+[`fact-store-schema.md`](fact-store-schema.md#file-location)). These two
+files stay in `_data/` since neither is ever fetched by the browser — only
+read/written by the generation agent.
 
 ## `categories.md`
 
@@ -51,7 +56,7 @@ information here.
 1. `_data/categories.md` — the full ordered list of category buckets.
 2. `_data/rotation-state.md` — the last category used, to determine the next
    one in sequence (wrapping to the top after the last category).
-3. `_data/facts.jsonl` — keyword-searched for existing questions/answers
+3. `assets/data/facts.jsonl` — keyword-searched for existing questions/answers
    related to each candidate fact, to avoid publishing a near-duplicate. The
    exact search/matching strategy is an open question tracked separately —
    this contract only guarantees the data is available to search, not how
@@ -59,7 +64,7 @@ information here.
 
 **After a run**, the generation skill writes:
 
-1. New records appended to `_data/facts.jsonl`, per
+1. New records appended to `assets/data/facts.jsonl`, per
    [`fact-store-schema.md`](fact-store-schema.md).
 2. `_data/rotation-state.md` overwritten (not appended) with the category
    just used and today's date.

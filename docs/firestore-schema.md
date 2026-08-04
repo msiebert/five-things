@@ -3,7 +3,7 @@
 Each signed-in user's progress lives in exactly one Firestore document in
 their own Firebase project — there is no shared or server-side database.
 The document holds only fact ID references and timestamps; the fact
-content itself always lives in [`_data/facts.jsonl`](../_data/facts.jsonl)
+content itself always lives in [`assets/data/facts.jsonl`](../assets/data/facts.jsonl)
 (see [`fact-store-schema.md`](fact-store-schema.md)) and is looked up by ID
 when needed.
 

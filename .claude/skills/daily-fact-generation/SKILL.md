@@ -19,7 +19,7 @@ it needs to decide what to do lives in the repo files it reads below.
 |---|---|---|
 | `_data/categories.md` | yes | no |
 | `_data/rotation-state.md` | yes | overwritten in place |
-| `_data/facts.jsonl` | yes (duplicate search) | appended |
+| `assets/data/facts.jsonl` | yes (duplicate search) | appended |
 | `daily/YYYY-MM-DD/index.md` | no | created |
 
 This skill is self-contained: the steps below already restate everything
@@ -32,7 +32,7 @@ against those docs, not something to resolve by reading them mid-run.
 
 ## Context discipline
 
-`_data/facts.jsonl` grows by 5 lines every day and has no upper bound, so
+`assets/data/facts.jsonl` grows by 5 lines every day and has no upper bound, so
 it is the one file in this skill that must never be read in full — doing
 so wastes tokens today and will eventually blow the context window
 outright. Every step below that touches it says exactly how to access it;
@@ -51,7 +51,7 @@ the rule behind all of them is:
 `_data/categories.md` and `_data/rotation-state.md` are small and
 fixed/slow-growing by design (see their docs), so reading them in full is
 fine and expected — this discipline applies specifically to
-`_data/facts.jsonl`.
+`assets/data/facts.jsonl`.
 
 ## Procedure
 
@@ -70,7 +70,7 @@ Run these steps in order. Do not skip or reorder them.
    `space` → topic "Jupiter", not "space" itself). Prefer a topic distinct
    from ones already visible for this category recently. Check this with a
    **keyword grep** for the category's `topic` slug against
-   `_data/facts.jsonl` (e.g. `grep '"topic": "space"' _data/facts.jsonl`),
+   `assets/data/facts.jsonl` (e.g. `grep '"topic": "space"' assets/data/facts.jsonl`),
    not a full-file read — see Context discipline above. If that turns up
    many matches, it's enough to skim the most recent few.
 
@@ -96,10 +96,10 @@ Run these steps in order. Do not skip or reorder them.
    - Still avoid true obscurity/trivia-for-trivia's-sake — each fact should
      be something a reasonably informed person would recognize as
      important once they read it, even if they didn't know it before.
-3. Before finalizing each candidate fact, check `_data/facts.jsonl` for
+3. Before finalizing each candidate fact, check `assets/data/facts.jsonl` for
    similar `question`/`answer` text via a **keyword grep** on distinctive
    terms from the candidate (e.g. `grep -i "great red spot"
-   _data/facts.jsonl`), not a full-file read — see Context discipline
+   assets/data/facts.jsonl`), not a full-file read — see Context discipline
    above. Swap out any candidate that's a near-duplicate of something
    already published. This is a best-effort check, not exhaustive
    deduplication — see Known Limitations below.
@@ -128,13 +128,13 @@ For each of the 5 facts, write:
 
 1. Determine today's date `YYYY-MM-DD`.
 2. Confirm no records already exist for today's date by checking a
-   **bounded tail** of `_data/facts.jsonl` (e.g. the last 5-10 lines — new
+   **bounded tail** of `assets/data/facts.jsonl` (e.g. the last 5-10 lines — new
    records are always appended in date order, so today's, if any, would be
    there), not a full-file read — see Context discipline above. This is
    normally empty, since this runs once per morning; if it isn't, continue
    numbering after the highest existing sequence number for today rather
    than restarting at 1.
-3. Append 5 JSON lines to `_data/facts.jsonl`, one per fact, with:
+3. Append 5 JSON lines to `assets/data/facts.jsonl`, one per fact, with:
    - `id`: `YYYY-MM-DD-1` through `YYYY-MM-DD-5` (or continuing the
      sequence per step 2).
    - `question`, `answer`, `topic` (today's category slug), `date_added`
@@ -196,7 +196,7 @@ These are explicitly out of scope for this skill and tracked as open
 questions elsewhere (no need to chase them down during a run):
 
 - **Duplicate avoidance** is a simple keyword search against
-  `_data/facts.jsonl` (step 2.3) plus picking a topic distinct from
+  `assets/data/facts.jsonl` (step 2.3) plus picking a topic distinct from
   category peers (step 1.4). There is no semantic similarity check or
   guaranteed non-duplication — a near-duplicate fact could still slip
   through.
@@ -208,7 +208,7 @@ questions elsewhere (no need to chase them down during a run):
 ## Failure behavior
 
 If any step fails (research turns up nothing usable, a file is missing or
-malformed, etc.), stop without partially appending to `_data/facts.jsonl`
+malformed, etc.), stop without partially appending to `assets/data/facts.jsonl`
 or writing a partial day page — a half-written day is worse than a missed
 one. There is no backfill mechanism for a missed day; that is handled (via
 failure notification) by the scheduled-task wiring, not by this skill.
