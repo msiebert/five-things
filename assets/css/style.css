@@ -447,6 +447,25 @@ main {
   color: var(--card-bg);
 }
 
+.add-to-collection:disabled {
+  cursor: default;
+}
+
+.add-to-collection.is-saving {
+  opacity: 0.7;
+}
+
+.add-to-collection.is-added {
+  background: var(--accent);
+  color: var(--card-bg);
+  opacity: 1;
+}
+
+.add-to-collection.is-error {
+  border-color: #b3382c;
+  color: #b3382c;
+}
+
 /* Footer */
 
 .site-footer {
