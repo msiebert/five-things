@@ -13,3 +13,10 @@ exclude:
   - Gemfile.lock
   - firestore.rules
 
+# _data/ is excluded from the build output by default (leading underscore).
+# facts.jsonl needs to reach the browser as a static file so the Take-25
+# quiz's client-side fetch/cache layer (assets/js/fact-store.js) can load it
+# — see docs/fact-store-client.md.
+include:
+  - _data/facts.jsonl
+
