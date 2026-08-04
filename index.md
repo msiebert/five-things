@@ -39,7 +39,8 @@ title: Home
 <section class="quiz" id="quiz">
   <h2 class="section-heading">Take‑25 quiz</h2>
   <p class="quiz-copy">
-    Coming soon — the Take‑25 quiz will draw twenty-five questions from
-    everything you've learned so far across every daily entry.
+    Twenty-five questions drawn from everything you've learned so far
+    across every daily entry, weighted toward what you've recently missed.
   </p>
+  <a class="latest-cta" href="{{ '/take-25/' | relative_url }}">Take today's quiz &rarr;</a>
 </section>

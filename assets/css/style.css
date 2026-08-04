@@ -466,6 +466,137 @@ main {
   color: #b3382c;
 }
 
+/* Take-25 quiz page */
+
+.quiz-header {
+  margin-bottom: 2.25rem;
+}
+
+.quiz-header h1 {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 5vw, 2.1rem);
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+.quiz-subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.quiz-status {
+  color: var(--muted);
+  font-family: var(--serif-text);
+}
+
+.quiz-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+}
+
+.quiz-progress {
+  margin: 0 0 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.quiz-topic {
+  margin: 0 0 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.quiz-question {
+  font-family: var(--serif);
+  font-weight: 500;
+  margin: 0 0 1.25rem;
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+
+.quiz-reveal {
+  font: inherit;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 2rem;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--card-bg);
+  cursor: pointer;
+}
+
+.quiz-answer-block {
+  margin-top: 1rem;
+}
+
+.quiz-answer {
+  margin: 0 0 0.85rem;
+  font-weight: 600;
+  font-family: var(--serif-text);
+  font-size: 1.05rem;
+}
+
+.quiz-explanation-link {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  font-size: 0.85rem;
+}
+
+.quiz-grade-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.quiz-grade {
+  font: inherit;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.55rem 1.1rem;
+  border-radius: 2rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--fg);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.quiz-grade-correct:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.quiz-grade-missed:hover {
+  border-color: #b3382c;
+  color: #b3382c;
+}
+
+.quiz-summary {
+  text-align: center;
+}
+
+.quiz-score {
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+  color: var(--accent);
+}
+
 /* Footer */
 
 .site-footer {
