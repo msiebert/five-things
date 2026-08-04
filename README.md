@@ -24,3 +24,12 @@ also keyword-searches `_data/facts.jsonl` directly to avoid near-duplicate
 questions). See
 [`docs/agent-reference-files.md`](docs/agent-reference-files.md) for the
 full read/write contract.
+
+## Sign-in and per-user progress
+
+Google sign-in and per-user progress (collected facts, quiz history) run
+entirely against each user's own Firebase project — see
+[`docs/firebase-setup.md`](docs/firebase-setup.md) for the setup
+walkthrough and [`docs/firestore-schema.md`](docs/firestore-schema.md) for
+the Firestore document shape. Security rules live in
+[`firestore.rules`](firestore.rules).

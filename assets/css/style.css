@@ -110,6 +110,51 @@ a {
   border-color: var(--accent-soft);
 }
 
+.auth-controls {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.auth-sign-in,
+.auth-sign-out {
+  font: inherit;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.4rem 0.9rem;
+  border-radius: 2rem;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.auth-sign-in:hover,
+.auth-sign-out:hover {
+  background: var(--accent);
+  color: var(--card-bg);
+}
+
+.auth-signed-in {
+  display: none;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.auth-user {
+  color: var(--muted);
+}
+
+.auth-controls.is-signed-in .auth-sign-in {
+  display: none;
+}
+
+.auth-controls.is-signed-in .auth-signed-in {
+  display: flex;
+}
+
 /* Main / shared layout */
 
 main {

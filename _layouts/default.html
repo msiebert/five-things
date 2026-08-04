@@ -26,6 +26,7 @@
           <a href="{{ '/' | relative_url }}">Journal</a>
           <a href="{{ '/#quiz' | relative_url }}">Take‑25</a>
         </nav>
+        {% include auth-controls.html %}
       </div>
     </header>
 
@@ -48,5 +49,6 @@
     <button type="button" class="install-banner-dismiss" aria-label="Dismiss">&times;</button>
   </div>
   <script src="{{ '/assets/js/install-banner.js' | relative_url }}" defer></script>
+  <script type="module" src="{{ '/assets/js/auth.js' | relative_url }}"></script>
 </body>
 </html>
