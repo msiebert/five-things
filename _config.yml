@@ -3,8 +3,8 @@ description: >-
   A personal daily-learning and trivia app. Each morning, five new facts
   are generated and added to the central fact store; a Take-25 quiz draws
   from everything you've learned so far.
-baseurl: ""
-url: ""
+baseurl: "/five-things"
+url: "https://msiebert.github.io"
 
 exclude:
   - README.md

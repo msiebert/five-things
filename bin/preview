@@ -1,0 +1,76 @@
+#!/bin/bash
+# Build/serve the Jekyll site locally and (optionally) screenshot it, so
+# changes can be viewed without a real GitHub Pages deploy.
+#
+# Usage:
+#   bin/preview start                 # build + serve in the background on :4000
+#   bin/preview stop                  # stop the background server
+#   bin/preview shot <path> <out.png> [--mobile]
+#                                      # screenshot a served page, e.g.:
+#                                      #   bin/preview shot / home.png
+#                                      #   bin/preview shot /daily/2026-08-02/ daily.png --mobile
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+PORT=4000
+PID_FILE=/tmp/five-things-jekyll.pid
+LOG_FILE=/tmp/five-things-jekyll.log
+BASE_URL="http://127.0.0.1:${PORT}/five-things"
+
+start() {
+  if [ -f "$PID_FILE" ] && kill -0 "$(cat "$PID_FILE")" 2>/dev/null; then
+    echo "Already running at ${BASE_URL}/"
+    return
+  fi
+  bundle exec jekyll serve --detach --port "$PORT" > "$LOG_FILE" 2>&1
+  # `jekyll serve --detach` doesn't write a pid file itself; find the process.
+  pgrep -f "jekyll .*serve" | tail -n1 > "$PID_FILE"
+  for _ in $(seq 1 30); do
+    if curl -sf "${BASE_URL}/" > /dev/null; then
+      echo "Serving at ${BASE_URL}/"
+      return
+    fi
+    sleep 0.5
+  done
+  echo "Server did not come up; see $LOG_FILE" >&2
+  exit 1
+}
+
+stop() {
+  if [ -f "$PID_FILE" ]; then
+    kill "$(cat "$PID_FILE")" 2>/dev/null || true
+    rm -f "$PID_FILE"
+  fi
+  pkill -f "jekyll .*serve" 2>/dev/null || true
+}
+
+shot() {
+  local path="$1" out="$2" viewport="1280,900"
+  if [ "${3:-}" = "--mobile" ]; then
+    viewport="390,844"
+  fi
+  start
+  NODE_PATH="${NODE_PATH:-/opt/node22/lib/node_modules}" node -e "
+    const { chromium } = require('playwright');
+    const [w, h] = '${viewport}'.split(',').map(Number);
+    (async () => {
+      const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
+      const page = await browser.newPage({ viewport: { width: w, height: h } });
+      await page.goto('${BASE_URL}${path}', { waitUntil: 'networkidle' });
+      await page.screenshot({ path: '${out}', fullPage: true });
+      await browser.close();
+    })();
+  "
+  echo "Saved screenshot to ${out}"
+}
+
+case "${1:-}" in
+  start) start ;;
+  stop) stop ;;
+  shot) shift; shot "$@" ;;
+  *)
+    echo "Usage: bin/preview {start|stop|shot <path> <out.png> [--mobile]}" >&2
+    exit 1
+    ;;
+esac

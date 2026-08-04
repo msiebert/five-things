@@ -2,11 +2,23 @@
 layout: default
 ---
 <article class="daily-page">
-  <h1>{{ page.title }}</h1>
+  <a class="back-link" href="{{ '/' | relative_url }}">&larr; All daily entries</a>
+
+  <header class="daily-header">
+    {% if page.date %}
+      <p class="daily-date">{{ page.date | date: "%A, %B %-d, %Y" }}</p>
+    {% endif %}
+    <h1>Five things to learn</h1>
+    {% if page.topic %}
+      <p class="daily-topic">{{ page.topic }}</p>
+    {% endif %}
+  </header>
 
   <div class="fact-list">
     {% for fact in page.facts %}
-      {% include fact-card.html fact=fact %}
+      {% include fact-card.html fact=fact index=forloop.index %}
     {% endfor %}
   </div>
+
+  <a class="back-link back-link-bottom" href="{{ '/' | relative_url }}">&larr; All daily entries</a>
 </article>

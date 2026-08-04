@@ -1,7 +1,9 @@
 ---
 layout: daily
 title: "Daily Learning — July 31, 2026"
+date: 2026-07-31
 permalink: /daily/2026-07-31/
+topic: "A mixed set — science, history, geography & biography"
 facts:
   - id: "2026-07-31-1"
     question: "What is the largest planet in our solar system?"
