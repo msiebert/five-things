@@ -8,6 +8,8 @@ title: Home
   <p class="hero-description">{{ site.description }}</p>
 </section>
 
+<section class="stats" id="stats" data-stats-root></section>
+
 {% assign daily_pages = site.pages | where_exp: "p", "p.url contains '/daily/'" | sort: "date" | reverse %}
 
 <section class="latest" id="latest">

@@ -301,6 +301,92 @@ main {
   font-family: var(--serif-text);
 }
 
+/* Home: gamification stats widget */
+
+.stats-panel {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.stats-check {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.stats-check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.95rem;
+  flex: none;
+}
+
+.stats-check.is-done .stats-check-icon {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--card-bg);
+}
+
+.stats-check.is-done .stats-check-label {
+  color: var(--fg);
+}
+
+.stats-row {
+  display: flex;
+  gap: 1.75rem;
+}
+
+.stats-figure {
+  display: flex;
+  flex-direction: column;
+}
+
+.stats-figure-value {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1.1;
+}
+
+.stats-figure-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.stats-trend {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.3rem;
+  height: 2rem;
+  margin-left: auto;
+}
+
+.stats-bar {
+  display: inline-block;
+  width: 0.4rem;
+  height: max(10%, var(--pct));
+  border-radius: 0.2rem;
+  background: var(--accent-soft);
+}
+
 /* Home: quiz teaser */
 
 .quiz-copy {

@@ -85,6 +85,20 @@ On successful grading:
   gamification stats update to listen for. No stats logic lives here yet —
   this is just the hook.
 
+That hook is consumed by `assets/js/stats.js` (MAR-15): it listens for
+`five-things:take25-completed` on `window` — loaded on every page via
+`_layouts/default.html`, not just `/take-25/`, so the completion is
+captured wherever the event fires — and appends `{date, total, correct}`
+to a bounded history under the `five-things:stats:v1` localStorage key.
+Any element with `data-stats-root` (currently the home page) renders the
+checkmark (read from `five-things:take25:completed:<date>`), a streak
+count, and a small accuracy-trend sparkline computed from that history.
+Streak is computed by walking back from today (or yesterday, so a streak
+stays alive while today's quiz is still pending) counting consecutive
+completed calendar days — a skipped day breaks the chain, per normal
+streak logic — rather than being stored as a mutable counter, so it can't
+go stale.
+
 ## Auth
 
 The quiz requires a signed-in user (the draw and grading both need
