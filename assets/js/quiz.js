@@ -63,10 +63,12 @@ function weightedSample(items, weights, n) {
 
 async function drawQuestions(userDoc) {
   const allFacts = await getAllFacts();
+  const collectedIds = new Set((userDoc.collected || []).map((e) => e.id));
+  const pool = allFacts.filter((fact) => collectedIds.has(fact.id));
   const missedMap = toMap(userDoc.recentlyMissed);
   const addedMap = toMap(userDoc.recentlyAdded);
-  const weights = allFacts.map((fact) => weightFor(fact.id, missedMap, addedMap));
-  return weightedSample(allFacts, weights, Math.min(QUIZ_LENGTH, allFacts.length));
+  const weights = pool.map((fact) => weightFor(fact.id, missedMap, addedMap));
+  return weightedSample(pool, weights, Math.min(QUIZ_LENGTH, pool.length));
 }
 
 async function gradeQuiz(user, questions, grades) {
@@ -83,17 +85,12 @@ async function gradeQuiz(user, questions, grades) {
   const nextMissed = (userDoc.recentlyMissed || []).filter((e) => !quizzedIds.has(e.id));
   for (const id of missedIds) nextMissed.push({ id, at: now });
 
-  const trackedIds = new Set(
-    [
-      ...(userDoc.collected || []),
-      ...(userDoc.recentlyMissed || []),
-      ...(userDoc.recentlyAdded || []),
-    ].map((e) => e.id)
+  const seenIds = new Set(
+    [...(userDoc.recentlyMissed || []), ...(userDoc.recentlyAdded || [])].map((e) => e.id)
   );
-  const allFacts = await getAllFacts();
-  const newlyDiscovered = allFacts
-    .map((f) => f.id)
-    .filter((id) => !trackedIds.has(id));
+  const newlyDiscovered = (userDoc.collected || [])
+    .map((e) => e.id)
+    .filter((id) => !seenIds.has(id));
 
   const nextAdded = (userDoc.recentlyAdded || [])
     .filter((e) => !quizzedIds.has(e.id))
@@ -139,7 +136,7 @@ function renderSignInPrompt(root) {
 function renderEmptyState(root) {
   root.innerHTML = `
     <div class="quiz-panel">
-      <p>No facts to quiz on yet — check back once a few daily entries have been published.</p>
+      <p>You haven't collected any facts yet — add some with the "Add to my collection" button on a daily page, then come back here to quiz yourself.</p>
     </div>
   `;
 }

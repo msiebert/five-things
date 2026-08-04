@@ -2,8 +2,8 @@
 
 `take25.md` (served at `/take-25/`) is a standalone page — assembled fresh
 every time it's opened, not pre-baked at build time — that quizzes a
-signed-in user on 25 facts drawn from everything published in the central
-fact store so far. It's logically independent from the daily loop: it reads
+signed-in user on 25 facts drawn from the facts they've collected so far.
+It's logically independent from the daily loop: it reads
 [`assets/js/fact-store.js`](../assets/js/fact-store.js) (MAR-12) for fact
 content and the user's [`users/{uid}` document](firestore-schema.md)
 (MAR-10) for personalization, and writes back to that document once, at the
@@ -13,11 +13,13 @@ All quiz logic lives in `assets/js/quiz.js`.
 
 ## Draw: weighted sample of 25
 
-The eligible pool is **every fact ever published** (`getAllFacts()` from the
-fact store) — nothing ever retires. Facts are drawn without replacement,
-weighted so that facts the user recently missed or recently gained access to
-come up more often, with the boost fading over time rather than facts being
-excluded outright.
+The eligible pool is **the facts in the user's `collected` list**
+(`users/{uid}.collected`, cross-referenced against `getAllFacts()` from the
+fact store for content) — facts the user hasn't explicitly saved via "Add to
+my collection" never come up. Facts are drawn without replacement, weighted
+so that facts the user recently missed or recently collected come up more
+often, with the boost fading over time rather than facts being excluded
+outright.
 
 ```
 weight(fact) = BASE_WEIGHT
@@ -35,8 +37,10 @@ formula.
 Sampling itself is weighted random sampling *without replacement*
 (Efraimidis–Spirakis A-Res: key each item `random() ** (1/weight)`, take the
 top N by key) rather than repeated weighted draws with rejection, so it's
-O(n log n) and never loops. If the pool has fewer than 25 facts (early on),
-the quiz simply uses the whole pool.
+O(n log n) and never loops. If the collected pool has fewer than 25 facts
+(the common case, at least early on), the quiz simply uses the whole pool.
+If nothing is collected yet, the page shows a prompt to collect facts
+instead of a quiz (`renderEmptyState`).
 
 ## UI: prompt-first
 
@@ -61,11 +65,10 @@ After question 25, one Firestore read-modify-write updates both lists on
   of the list.
 - **`recentlyAdded`**: same drop-what-was-just-quizzed step (its "new fact"
   boost has served its purpose once it's been quizzed), then any fact in
-  the pool the user has never seen tracked anywhere before — not in
-  `collected`, `recentlyMissed`, or `recentlyAdded` — is added with
-  `at: now`. Since there's no server pushing new daily facts into each
-  user's document, this lazy sync at quiz-grading time is what makes newly
-  published facts show up as "recently added" for future draws.
+  `collected` that isn't already tracked in `recentlyMissed` or
+  `recentlyAdded` is added with `at: now`. This is what gives newly
+  collected facts a temporary boost in the draw until they've come up in a
+  quiz at least once.
 
 Both lists are read fresh (`getDoc`) immediately before this write to avoid
 clobbering a concurrent change from the collection button.
