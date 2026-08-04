@@ -2,11 +2,13 @@
 layout: default
 title: Home
 ---
-<section class="hero">
+<section class="hero hero-with-stats">
   <p class="hero-eyebrow">A daily learning journal</p>
   <h1>{{ site.title }}</h1>
   <p class="hero-description">{{ site.description }}</p>
 </section>
+
+<section class="stats" id="stats" data-stats-root></section>
 
 {% assign daily_pages = site.pages | where_exp: "p", "p.url contains '/daily/'" | sort: "date" | reverse %}
 
