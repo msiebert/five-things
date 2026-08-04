@@ -2,7 +2,7 @@
 layout: default
 title: Home
 ---
-<section class="hero">
+<section class="hero hero-with-stats">
   <p class="hero-eyebrow">A daily learning journal</p>
   <h1>{{ site.title }}</h1>
   <p class="hero-description">{{ site.description }}</p>
