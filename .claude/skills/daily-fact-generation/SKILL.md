@@ -20,7 +20,7 @@ it needs to decide what to do lives in the repo files it reads below.
 | `_data/categories.md` | yes | no |
 | `_data/rotation-state.md` | yes | overwritten in place |
 | `_data/facts.jsonl` | yes (duplicate search) | appended |
-| `daily/YYYY-MM-DD/index.html` | no | created |
+| `daily/YYYY-MM-DD/index.md` | no | created |
 
 This skill is self-contained: the steps below already restate everything
 needed for a normal run, drawn from `docs/agent-reference-files.md` and
@@ -146,42 +146,37 @@ For each of the 5 facts, write:
 
 ### 5. Render the day's static page
 
-Create `daily/YYYY-MM-DD/index.html` (matching the URL contract
-`/daily/YYYY-MM-DD/` from `docs/fact-store-schema.md`) containing all 5
-facts, with each fact's heading carrying `id="{fact id}"` so the deep-link
-convention `/daily/{date}/#{id}` resolves correctly.
+Create `daily/YYYY-MM-DD/index.md` (matching the URL contract
+`/daily/YYYY-MM-DD/` from `docs/fact-store-schema.md`) using the real
+Daily Learning Page template. The page is nothing but YAML front matter —
+`layout: daily` (defined in `_layouts/daily.html`) renders the answer-first
+reading-card view (question, answer, explanation, "add to my collection"
+button) for each entry in `facts`, and gives each card `id="{fact id}"` so
+the deep-link convention `/daily/{date}/#{id}` resolves correctly. No
+content is needed below the front matter:
 
-Until the real Daily Learning Page template (tracked separately) exists,
-use this minimal self-contained page — plain HTML, no Jekyll layout
-dependency, so it renders correctly today and can be swapped for the real
-template later without touching the fact data:
+```markdown
+---
+layout: daily
+title: "Daily Learning — {{ today's date, e.g. July 31, 2026 }}"
+permalink: /daily/{{ YYYY-MM-DD }}/
+facts:
+  - id: "{{ fact 1 id }}"
+    question: "{{ fact 1 question }}"
+    answer: "{{ fact 1 answer }}"
+    topic: {{ today's category slug }}
+    explanation: >-
+      {{ fact 1 explanatory paragraph }}
+  - id: "{{ fact 2 id }}"
+    question: "{{ fact 2 question }}"
+    answer: "{{ fact 2 answer }}"
+    topic: {{ today's category slug }}
+    explanation: >-
+      {{ fact 2 explanatory paragraph }}
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>5 Things — {{ today's date, e.g. July 31, 2026 }}</title>
-</head>
-<body>
-  <h1>5 Things — {{ today's date }}</h1>
-  <p>Today's topic: {{ topic title, e.g. "Jupiter" }} ({{ category slug }})</p>
-
-  <article id="{{ fact 1 id }}">
-    <h2>{{ fact 1 question }}</h2>
-    <p><strong>{{ fact 1 answer }}</strong></p>
-    <p>{{ fact 1 explanatory paragraph }}</p>
-  </article>
-
-  <!-- repeat article block for facts 2-5 -->
-</body>
-</html>
+  <!-- repeat entries for facts 3-5 -->
+---
 ```
-
-**When the real Daily Learning Page template lands, switch this step to
-use it instead of the placeholder markup above** — the fact content and
-IDs produced by steps 3-4 do not need to change, only how they're
-rendered.
 
 ### 6. Advance the rotation state
 
@@ -209,8 +204,6 @@ questions elsewhere (no need to chase them down during a run):
   order, wrapping at the end" (step 1.3). It does not weight categories by
   how long it's been since each was used, skip categories, or otherwise
   balance beyond simple round-robin order.
-- **Day page rendering** (step 5) uses a placeholder template pending the
-  real Daily Learning Page template. Swap it in once available.
 
 ## Failure behavior
 
