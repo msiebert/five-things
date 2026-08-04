@@ -13,7 +13,9 @@ progress lives in each user's own Firebase project.
 The fact store is `_data/facts.jsonl`, an append-only, newline-delimited
 JSON file of trivia facts. See
 [`docs/fact-store-schema.md`](docs/fact-store-schema.md) for the full format
-specification.
+specification. The Take-25 quiz reads it in the browser via
+`assets/js/fact-store.js`, a client-side fetch-and-cache module — see
+[`docs/fact-store-client.md`](docs/fact-store-client.md).
 
 ## Agent reference data
 

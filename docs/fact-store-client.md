@@ -1,0 +1,65 @@
+# Fact Store Client (fetch/cache layer)
+
+`assets/js/fact-store.js` is the client-side module the Take-25 quiz uses to
+read the central fact store (`_data/facts.jsonl`, see
+[`fact-store-schema.md`](fact-store-schema.md)) in the browser. There is no
+server-side component — it's a plain ES module that fetches a static file
+and caches the result.
+
+## Why the whole file, once
+
+The store stays small (roughly 5 records/day, each ~150 bytes of JSON), so
+fetching it in full and caching client-side is cheaper than per-ID requests
+against a static site with no query backend. At 5 facts/day that's under
+10 KB/year — even after 10 years of daily use the file is under 3 MB, well
+within what a browser fetches and holds in memory or localStorage without
+issue. If usage patterns ever push well past that (e.g. much higher daily
+volume), the fetch-once approach would need revisiting, but nothing in the
+current design points that way.
+
+## Serving `_data/facts.jsonl` to the browser
+
+`_data/` is excluded from Jekyll's build output by default (any
+underscore-prefixed path is). `_config.yml` explicitly re-includes
+`_data/facts.jsonl` so the build copies it into `_site/_data/facts.jsonl`
+verbatim (Jekyll's data auto-loading doesn't apply to `.jsonl` files anyway,
+per the schema doc, so this is a plain static-file copy, not a data-reader
+pass). The client module resolves the file's URL relative to its own
+(`import.meta.url`), so it resolves correctly under the site's `baseurl`
+both locally (`bin/preview`) and on GitHub Pages.
+
+## Caching and invalidation
+
+- The parsed store (an object keyed by fact `id`, plus the date it was
+  fetched) is cached in `localStorage` under `five-things:fact-store`, and
+  mirrored in an in-memory variable for the lifetime of the page.
+- Every call to `loadFactStore()` compares the cached `fetchedDate` to
+  today's date (local, `YYYY-MM-DD`). A mismatch — the daily generation job
+  has very likely run since the cache was written — triggers a re-fetch;
+  otherwise the cached copy is reused with no network request.
+- This is a simple daily TTL rather than a version marker: the store only
+  ever changes once a day (the morning generation run), so "today" is
+  precise enough and needs no extra round-trip to check a version file.
+- Concurrent calls while a fetch is in flight share the same promise rather
+  than issuing duplicate requests.
+- If `localStorage` is unavailable (private browsing, quota exceeded), the
+  module falls back to the in-memory cache for that page load — it just
+  won't survive a reload.
+
+## API
+
+```js
+import { loadFactStore, getFact, getAllFacts, explanationUrl } from "/assets/js/fact-store.js";
+
+const fact = await getFact("2026-07-31-1");
+// => { id, question, answer, topic, date_added, explanationUrl }
+
+const allFacts = await getAllFacts();
+// => every record currently in the store, for sampling quiz questions
+```
+
+`question`, `answer`, `topic`, and `date_added` come straight from the fact
+store record. `explanationUrl` is derived, not stored (the fact store itself
+has no `explanation` field — see
+[the schema doc](fact-store-schema.md#linking-to-the-explanation)); it's the
+deep link to that fact's full explanation on its daily page.
