@@ -37,5 +37,15 @@
       <p>A quiet daily habit of learning five new things.</p>
     </footer>
   </div>
+
+  <div class="install-banner" role="dialog" aria-label="Install 5 Things">
+    <img class="install-banner-icon" src="{{ '/assets/icons/icon-192.png' | relative_url }}" alt="">
+    <div class="install-banner-body">
+      <p class="install-banner-title">Install {{ site.title }}</p>
+      <p class="install-banner-copy">Tap <strong>Share</strong>, then <strong>Add to Home Screen</strong>.</p>
+    </div>
+    <button type="button" class="install-banner-dismiss" aria-label="Dismiss">&times;</button>
+  </div>
+  <script src="{{ '/assets/js/install-banner.js' | relative_url }}" defer></script>
 </body>
 </html>

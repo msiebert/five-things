@@ -443,3 +443,64 @@ main {
     font-size: 0.72rem;
   }
 }
+
+/* Install banner (iOS "Add to Home Screen" prompt) */
+
+.install-banner {
+  display: none;
+  position: fixed;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  z-index: 100;
+  align-items: center;
+  gap: 0.85rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 0.9rem 1rem;
+  box-shadow: var(--shadow);
+}
+
+.install-banner.is-visible {
+  display: flex;
+}
+
+.install-banner-icon {
+  flex: none;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.6rem;
+}
+
+.install-banner-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.install-banner-title {
+  margin: 0 0 0.15rem;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.install-banner-copy {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.install-banner-dismiss {
+  flex: none;
+  font: inherit;
+  font-family: var(--sans);
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  line-height: 1;
+}
