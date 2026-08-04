@@ -103,5 +103,8 @@ export async function getFact(id) {
 // need to draw a random sample rather than look up specific IDs.
 export async function getAllFacts() {
   const store = await loadFactStore();
-  return Object.values(store.facts);
+  return Object.values(store.facts).map((fact) => ({
+    ...fact,
+    explanationUrl: explanationUrl(fact.id),
+  }));
 }
