@@ -1,6 +1,6 @@
 # Fact Store Client (fetch/cache layer)
 
-`assets/js/fact-store.js` is the client-side module the Take-25 quiz uses to
+`assets/js/fact-store.js` is the client-side module the quiz uses to
 read the central fact store (`assets/data/facts.jsonl`, see
 [`fact-store-schema.md`](fact-store-schema.md)) in the browser. There is no
 server-side component — it's a plain ES module that fetches a static file

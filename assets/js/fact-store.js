@@ -99,7 +99,7 @@ export async function getFact(id) {
   return { ...fact, explanationUrl: explanationUrl(id) };
 }
 
-// Returns every fact in the store, for callers (like the Take-25 quiz) that
+// Returns every fact in the store, for callers (like the quiz) that
 // need to draw a random sample rather than look up specific IDs.
 export async function getAllFacts() {
   const store = await loadFactStore();

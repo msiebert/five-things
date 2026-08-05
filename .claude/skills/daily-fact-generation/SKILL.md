@@ -111,7 +111,7 @@ For each of the 5 facts, write:
 - A short **question** (the trivia prompt).
 - A **one-word or one-name answer** — a single term, number, date, place,
   or proper name (e.g. `Mosaic`, `GET`, `NeXT`, `Ted Nelson`, `1965`), not
-  a phrase or sentence. This matters for the Take-25 quiz UI, where users
+  a phrase or sentence. This matters for the quiz UI, where users
   type the answer in themselves — a short answer is quick to type and easy
   to judge as right/wrong. If the most interesting angle on a fact would
   naturally take a multi-word phrase to answer, reshape the *question* to

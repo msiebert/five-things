@@ -1,9 +1,9 @@
 // Local-storage gamification stats: daily checkmark, streak, accuracy trend.
-// See docs/take25-quiz.md#completion-side-effects for the completion
-// contract this consumes (MAR-13's `five-things:take25-completed` event and
-// the `five-things:take25:completed:<date>` checkmark key).
+// See docs/quiz.md#completion-side-effects for the completion
+// contract this consumes (MAR-13's `five-things:quiz-completed` event and
+// the `five-things:quiz:completed:<date>` checkmark key).
 const STATS_KEY = "five-things:stats:v1";
-const COMPLETION_PREFIX = "five-things:take25:completed:";
+const COMPLETION_PREFIX = "five-things:quiz:completed:";
 const HISTORY_LIMIT = 30;
 const TREND_LENGTH = 10;
 
@@ -98,7 +98,7 @@ function renderWidget(root) {
     <div class="stats-panel">
       <div class="stats-check${completedToday ? " is-done" : ""}">
         <span class="stats-check-icon" aria-hidden="true">${completedToday ? "&check;" : "&#9675;"}</span>
-        <span class="stats-check-label">${completedToday ? "Today's Take‑25 done" : "Take‑25 not done yet today"}</span>
+        <span class="stats-check-label">${completedToday ? "Today's quiz done" : "Quiz not done yet today"}</span>
       </div>
       <div class="stats-row">
         <div class="stats-figure">
@@ -120,7 +120,7 @@ function renderAll() {
 }
 
 function init() {
-  window.addEventListener("five-things:take25-completed", function (event) {
+  window.addEventListener("five-things:quiz-completed", function (event) {
     const { date, total, correct } = event.detail;
     recordCompletion(date, total, correct);
     renderAll();

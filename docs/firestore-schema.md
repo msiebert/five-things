@@ -23,8 +23,8 @@ signs in (see `assets/js/auth.js`, `ensureUserDoc`).
 | Field            | Type  | Description |
 |-------------------|-------|-------------|
 | `collected`        | array | Facts the user has explicitly saved via the "add to my collection" button. |
-| `recentlyMissed`    | array | Facts the user got wrong on a recent Take-25 quiz. |
-| `recentlyAdded`     | array | Facts added to `collected` recently and not yet quizzed, used to weight the Take-25 draw. |
+| `recentlyMissed`    | array | Facts the user got wrong on a recent quiz. |
+| `recentlyAdded`     | array | Facts added to `collected` recently and not yet quizzed, used to weight the quiz draw. |
 
 Each array holds objects of the same shape:
 
@@ -60,8 +60,8 @@ sign-in. The read/write logic for each list is built elsewhere:
 
 - `collected` — written by the "add to my collection" button
   ([MAR-11](https://linear.app/mark-siebert/issue/MAR-11)).
-- `recentlyMissed` / `recentlyAdded` — written once per completed Take-25
-  quiz, at grading time
+- `recentlyMissed` / `recentlyAdded` — written once per completed quiz,
+  at grading time
   ([MAR-13](https://linear.app/mark-siebert/issue/MAR-13)).
 
 ## Access control

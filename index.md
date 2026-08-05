@@ -39,10 +39,10 @@ title: Home
 </section>
 
 <section class="quiz" id="quiz">
-  <h2 class="section-heading">Take‑25 quiz</h2>
+  <h2 class="section-heading">Quiz</h2>
   <p class="quiz-copy">
     Twenty-five questions drawn from everything you've learned so far
     across every daily entry, weighted toward what you've recently missed.
   </p>
-  <a class="latest-cta" href="{{ '/take-25/' | relative_url }}">Take today's quiz &rarr;</a>
+  <a class="latest-cta" href="{{ '/quiz/' | relative_url }}">Take today's quiz &rarr;</a>
 </section>

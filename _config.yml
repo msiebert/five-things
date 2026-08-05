@@ -1,7 +1,7 @@
 title: 5 Things
 description: >-
   A personal daily-learning and trivia app. Each morning, five new facts
-  are generated and added to the central fact store; a Take-25 quiz draws
+  are generated and added to the central fact store; a quiz draws
   from everything you've learned so far.
 baseurl: "/five-things"
 url: "https://msiebert.github.io"

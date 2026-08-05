@@ -3,7 +3,7 @@
 The central fact store is the single source of truth for all trivia facts in
 5 Things. It is a flat file committed to this repo — not a database — and is
 written to by the daily generation agent (append-only) and read by the
-Take-25 quiz (full-file client-side cache, looked up by `id`).
+quiz (full-file client-side cache, looked up by `id`).
 
 ## File location
 
@@ -23,7 +23,7 @@ excluded `_data/*` file back into the static output, even though a locally
 installed newer Jekyll does — a real, previously-hit inconsistency between
 local preview and production. A plain path under `assets/` sidesteps the
 whole question: every Jekyll version copies it as an ordinary static file
-with zero special config, which is what the Take-25 quiz's client-side
+with zero special config, which is what the quiz's client-side
 fetch (`assets/js/fact-store.js`) actually needs.
 `_data/categories.md` and `_data/rotation-state.md` stay in `_data/` — they
 are only ever read/written by the daily generation agent, never fetched by
@@ -52,7 +52,7 @@ without parsing or re-serializing everything already there.
 
 The full explanatory paragraph for each fact is **not** stored in the fact
 store. It lives only on that day's rendered daily page, keeping this file
-small enough for the Take-25 quiz to fetch and cache in full on every visit.
+small enough for the quiz to fetch and cache in full on every visit.
 See [Linking to the explanation](#linking-to-the-explanation) below for how
 to find it from a fact record alone.
 
