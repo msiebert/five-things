@@ -3,7 +3,7 @@ layout: daily
 title: "Daily Learning — August 2, 2026"
 date: 2026-08-02
 permalink: /daily/2026-08-02/
-topic: "The World Wide Web (technology)"
+topic: "The World Wide Web"
 facts:
   - id: "2026-08-02-1"
     question: "What was the name of the first web browser, which doubled as a page editor?"

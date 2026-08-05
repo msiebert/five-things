@@ -24,6 +24,11 @@ full read/write contract.
   `docs/fact-store-schema.md` treats `topic` values as stable identifiers.
   Adding a new category inserts it into the rotation at its position in this
   list.
+- Adding a category also means adding its browse page: create
+  `category/{slug}/index.md` with `layout: category` and `category: {slug}`
+  front matter (see any existing file under [`category/`](../category) for
+  the pattern), and it will automatically list every daily entry that
+  includes a fact tagged with that slug.
 
 ## Categories
 

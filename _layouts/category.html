@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<article class="category-page">
+  <a class="back-link" href="{{ '/' | relative_url }}">&larr; All daily entries</a>
+
+  <header class="daily-header">
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="daily-topic">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  {% assign daily_pages = site.pages | where_exp: "p", "p.url contains '/daily/'" | sort: "date" | reverse %}
+  {% capture entries_html %}
+    {% for entry in daily_pages %}
+      {% assign matched = false %}
+      {% for fact in entry.facts %}
+        {% if fact.topic == page.category %}
+          {% assign matched = true %}
+        {% endif %}
+      {% endfor %}
+      {% if matched %}
+        <li class="archive-item">
+          <a href="{{ entry.url | relative_url }}">
+            <span class="archive-date">{{ entry.date | date: "%b %-d, %Y" }}</span>
+            <span class="archive-title">{% if entry.topic %}{{ entry.topic }}{% else %}Five things to learn{% endif %}</span>
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  {% endcapture %}
+
+  {% if entries_html contains "archive-item" %}
+    <ol class="archive-list">{{ entries_html }}</ol>
+  {% else %}
+    <p class="category-empty">No entries yet for this category.</p>
+  {% endif %}
+
+  <a class="back-link back-link-bottom" href="{{ '/' | relative_url }}">&larr; All daily entries</a>
+</article>
