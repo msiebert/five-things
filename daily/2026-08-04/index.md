@@ -3,7 +3,7 @@ layout: daily
 title: "Daily Learning — August 4, 2026"
 date: 2026-08-04
 permalink: /daily/2026-08-04/
-topic: "Michelangelo's Sistine Chapel ceiling (arts)"
+topic: "Michelangelo's Sistine Chapel ceiling"
 facts:
   - id: "2026-08-04-1"
     question: "About how many years did Michelangelo spend painting the Sistine Chapel ceiling?"

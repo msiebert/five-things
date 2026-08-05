@@ -160,6 +160,8 @@ content is needed below the front matter:
 layout: daily
 title: "Daily Learning — {{ today's date, e.g. July 31, 2026 }}"
 permalink: /daily/{{ YYYY-MM-DD }}/
+date: {{ YYYY-MM-DD }}
+topic: "{{ today's topic title, e.g. Jupiter }}"
 facts:
   - id: "{{ fact 1 id }}"
     question: "{{ fact 1 question }}"
@@ -177,6 +179,19 @@ facts:
   <!-- repeat entries for facts 3-5 -->
 ---
 ```
+
+The top-level `date` and `topic` fields are not decorative — `_layouts/daily.html`
+and the home page's journal listing both read them (`page.date`, `page.topic`),
+so they must be set on every run, not just the `facts` list.
+
+**`topic` is the bare topic title only — never append the category in
+parentheses.** Write `topic: "Jupiter"`, not `topic: "Jupiter (space)"`. The
+category already lives in each fact's own `topic` field inside `facts`
+(the per-fact category slug, e.g. `space`) and on that category's own page
+(`category/{{ slug }}/index.md`, see below) — repeating it in parentheses
+on the page-level title is redundant and has slipped in before. If you're
+ever unsure, check a recent entry under `daily/` first rather than
+inventing a format.
 
 ### 6. Advance the rotation state
 
