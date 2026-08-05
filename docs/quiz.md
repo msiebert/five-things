@@ -1,6 +1,6 @@
-# Take-25 Quiz
+# Quiz
 
-`take25.md` (served at `/take-25/`) is a standalone page — assembled fresh
+`quiz.md` (served at `/quiz/`) is a standalone page — assembled fresh
 every time it's opened, not pre-baked at build time — that quizzes a
 signed-in user on 25 facts drawn from the facts they've collected so far.
 It's logically independent from the daily loop: it reads
@@ -77,21 +77,21 @@ clobbering a concurrent change from the collection button.
 
 On successful grading:
 
-- `localStorage["five-things:take25:completed:<YYYY-MM-DD>"]` is set to the
+- `localStorage["five-things:quiz:completed:<YYYY-MM-DD>"]` is set to the
   completion ISO timestamp, keyed by local calendar date. This is the
-  checkmark MAR-15 reads to know today's Take-25 is done.
-- A `five-things:take25-completed` `CustomEvent` is dispatched on `window`
+  checkmark MAR-15 reads to know today's quiz is done.
+- A `five-things:quiz-completed` `CustomEvent` is dispatched on `window`
   with `detail: { date, total, correct, missed }`, for MAR-15's
   gamification stats update to listen for. No stats logic lives here yet —
   this is just the hook.
 
 That hook is consumed by `assets/js/stats.js` (MAR-15): it listens for
-`five-things:take25-completed` on `window` — loaded on every page via
-`_layouts/default.html`, not just `/take-25/`, so the completion is
+`five-things:quiz-completed` on `window` — loaded on every page via
+`_layouts/default.html`, not just `/quiz/`, so the completion is
 captured wherever the event fires — and appends `{date, total, correct}`
 to a bounded history under the `five-things:stats:v1` localStorage key.
 Any element with `data-stats-root` (currently the home page) renders the
-checkmark (read from `five-things:take25:completed:<date>`), a streak
+checkmark (read from `five-things:quiz:completed:<date>`), a streak
 count, and a small accuracy-trend sparkline computed from that history.
 Streak is computed by walking back from today (or yesterday, so a streak
 stays alive while today's quiz is still pending) counting consecutive

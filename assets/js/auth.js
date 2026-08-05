@@ -21,7 +21,7 @@ const provider = new GoogleAuthProvider();
 
 // Creates the per-user Firestore document on first sign-in. Population of
 // collected/recentlyMissed/recentlyAdded happens elsewhere (the collection
-// button and the Take-25 quiz) — this only guarantees the doc exists with
+// button and the quiz) — this only guarantees the doc exists with
 // the right shape before those write to it.
 async function ensureUserDoc(user) {
   const ref = doc(db, "users", user.uid);

@@ -1,7 +1,7 @@
 # 5 Things
 
 A personal daily-learning and trivia app: each morning, five new facts are
-generated and added to a central fact store; a Take-25 quiz draws from the
+generated and added to a central fact store; a quiz draws from the
 facts you've collected so far.
 
 This repo is the Jekyll/GitHub Pages site and its data. There is no backend
@@ -13,7 +13,7 @@ progress lives in each user's own Firebase project.
 The fact store is `assets/data/facts.jsonl`, an append-only, newline-delimited
 JSON file of trivia facts. See
 [`docs/fact-store-schema.md`](docs/fact-store-schema.md) for the full format
-specification. The Take-25 quiz reads it in the browser via
+specification. The quiz reads it in the browser via
 `assets/js/fact-store.js`, a client-side fetch-and-cache module — see
 [`docs/fact-store-client.md`](docs/fact-store-client.md).
 

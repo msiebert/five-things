@@ -1,5 +1,5 @@
-// Take-25 quiz: weighted draw, prompt-first UI, end-of-quiz grading.
-// See docs/take25-quiz.md for the full design (weighting formula, grading
+// Quiz: weighted draw, prompt-first UI, end-of-quiz grading.
+// See docs/quiz.md for the full design (weighting formula, grading
 // algorithm, localStorage/event contract for MAR-15).
 import { auth, db } from "./auth.js";
 import {
@@ -13,7 +13,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 import { getAllFacts } from "./fact-store.js";
 
-// --- Tunable weighting constants (docs/take25-quiz.md#draw-weighted-sample-of-25) ---
+// --- Tunable weighting constants (docs/quiz.md#draw-weighted-sample-of-25) ---
 const QUIZ_LENGTH = 25;
 const BASE_WEIGHT = 1;
 const MISSED_BOOST = 6;
@@ -102,12 +102,12 @@ async function gradeQuiz(user, questions, grades) {
 function markCompletedLocally(total, correct) {
   const date = today();
   try {
-    localStorage.setItem(`five-things:take25:completed:${date}`, new Date().toISOString());
+    localStorage.setItem(`five-things:quiz:completed:${date}`, new Date().toISOString());
   } catch (error) {
     // localStorage unavailable — completion still happened, just isn't tracked locally.
   }
   window.dispatchEvent(
-    new CustomEvent("five-things:take25-completed", {
+    new CustomEvent("five-things:quiz-completed", {
       detail: { date, total, correct, missed: total - correct },
     })
   );
