@@ -692,6 +692,88 @@ main {
   color: var(--accent);
 }
 
+/* Getting started */
+
+.guide-steps {
+  margin-bottom: 3rem;
+}
+
+.guide-step-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.guide-step {
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.guide-step-num {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--card-bg-alt);
+  color: var(--accent);
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.guide-step-body h3 {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin: 0 0 0.4rem;
+}
+
+.guide-step-body p {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--serif-text);
+  font-size: 0.95rem;
+}
+
+.guide-faq {
+  margin-bottom: 3rem;
+}
+
+.guide-faq-list {
+  margin: 0;
+  border-top: 1px solid var(--border);
+}
+
+.guide-faq-item {
+  padding: 1rem 0.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.guide-faq-item dt {
+  font-family: var(--serif);
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+}
+
+.guide-faq-item dd {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--serif-text);
+  font-size: 0.95rem;
+}
+
 /* Footer */
 
 .site-footer {
