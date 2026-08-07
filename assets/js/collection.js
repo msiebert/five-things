@@ -45,6 +45,12 @@ function writeCache(uid, ids) {
   );
 }
 
+function dispatchCollectionCount(count) {
+  window.dispatchEvent(
+    new CustomEvent("five-things:collection-count", { detail: { count } })
+  );
+}
+
 function markButtonsAsAdded(ids) {
   document.querySelectorAll(".add-to-collection").forEach(function (button) {
     if (!ids.has(button.dataset.factId)) return;
@@ -59,6 +65,7 @@ async function syncCollectedState(user) {
   const cache = readCache();
   if (cache && cache.uid === user.uid && cache.date === todayKey()) {
     markButtonsAsAdded(new Set(cache.ids));
+    dispatchCollectionCount(cache.ids.length);
     return;
   }
 
@@ -68,6 +75,7 @@ async function syncCollectedState(user) {
     const ids = new Set(collected.map(function (entry) { return entry.id; }));
     writeCache(user.uid, ids);
     markButtonsAsAdded(ids);
+    dispatchCollectionCount(ids.size);
   } catch (error) {
     console.error("Could not load collected facts", error);
   }
@@ -111,6 +119,7 @@ async function addToCollection(button) {
       : new Set();
     ids.add(factId);
     writeCache(user.uid, ids);
+    dispatchCollectionCount(ids.size);
   } catch (error) {
     console.error("Could not add fact to collection", error);
     button.classList.remove("is-saving");

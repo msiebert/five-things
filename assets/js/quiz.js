@@ -118,7 +118,7 @@ function markCompletedLocally(total, correct) {
 function renderSignInPrompt(root) {
   root.innerHTML = `
     <div class="quiz-panel">
-      <p>Sign in to draw today's Take&#8209;25 from everything you've learned so far.</p>
+      <p>Sign in to take today's quiz from everything you've learned so far.</p>
       <button type="button" class="auth-sign-in" data-quiz-sign-in>Sign in with Google</button>
     </div>
   `;
@@ -180,7 +180,7 @@ function renderSummary(root, total, correct) {
   root.innerHTML = `
     <div class="quiz-panel quiz-summary">
       <p class="quiz-score">${correct} / ${total}</p>
-      <p>Nice work — today's Take&#8209;25 is done. Your progress has been saved.</p>
+      <p>Nice work — today's quiz is done. Your progress has been saved.</p>
     </div>
   `;
 }
