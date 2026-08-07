@@ -4,8 +4,25 @@
 // the `five-things:quiz:completed:<date>` checkmark key).
 const STATS_KEY = "five-things:stats:v1";
 const COMPLETION_PREFIX = "five-things:quiz:completed:";
+const COLLECTION_CACHE_KEY = "five-things:collected";
 const HISTORY_LIMIT = 30;
 const TREND_LENGTH = 10;
+
+// Seeded from collection.js's cache (see assets/js/collection.js) so the
+// count is available on first paint; kept current after that by the
+// "five-things:collection-count" event collection.js dispatches whenever
+// the signed-in user's collected facts change.
+let collectionCount = loadCachedCollectionCount();
+
+function loadCachedCollectionCount() {
+  try {
+    const raw = localStorage.getItem(COLLECTION_CACHE_KEY);
+    const parsed = raw ? JSON.parse(raw) : null;
+    return parsed && Array.isArray(parsed.ids) ? parsed.ids.length : null;
+  } catch (error) {
+    return null;
+  }
+}
 
 function todayStr() {
   return new Date().toISOString().slice(0, 10);
@@ -109,6 +126,11 @@ function renderWidget(root) {
           <span class="stats-figure-value">${latest ? `${accuracyOf(latest)}%` : "—"}</span>
           <span class="stats-figure-label">last score</span>
         </div>
+        ${collectionCount !== null ? `
+        <div class="stats-figure">
+          <span class="stats-figure-value">${collectionCount}</span>
+          <span class="stats-figure-label">facts collected</span>
+        </div>` : ""}
       </div>
       ${recent.length ? `<div class="stats-trend" aria-label="Accuracy trend over recent quizzes">${bars}</div>` : ""}
     </div>
@@ -123,6 +145,11 @@ function init() {
   window.addEventListener("five-things:quiz-completed", function (event) {
     const { date, total, correct } = event.detail;
     recordCompletion(date, total, correct);
+    renderAll();
+  });
+
+  window.addEventListener("five-things:collection-count", function (event) {
+    collectionCount = event.detail.count;
     renderAll();
   });
 
