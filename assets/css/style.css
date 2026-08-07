@@ -463,33 +463,15 @@ main {
   box-shadow: var(--shadow);
 }
 
-.fact-card-head {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.65rem;
-  margin-bottom: 0.85rem;
-}
-
 .fact-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.6rem;
-  height: 1.6rem;
-  border-radius: 50%;
-  background: var(--card-bg-alt);
   color: var(--accent);
-  font-family: var(--serif);
-  font-size: 0.85rem;
   font-weight: 600;
-  flex: none;
-  margin-top: 0.1rem;
 }
 
 .fact-question {
   font-family: var(--serif);
   font-weight: 500;
-  margin: 0;
+  margin: 0 0 0.85rem;
   font-size: 1.15rem;
   line-height: 1.4;
 }
