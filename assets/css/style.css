@@ -465,9 +465,9 @@ main {
 
 .fact-card-head {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.65rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
 }
 
 .fact-number {
@@ -483,21 +483,13 @@ main {
   font-size: 0.85rem;
   font-weight: 600;
   flex: none;
-}
-
-.fact-topic {
-  margin: 0;
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted);
+  margin-top: 0.1rem;
 }
 
 .fact-question {
   font-family: var(--serif);
   font-weight: 500;
-  margin: 0 0 0.6rem;
+  margin: 0;
   font-size: 1.15rem;
   line-height: 1.4;
 }
