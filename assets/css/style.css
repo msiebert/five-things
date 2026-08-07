@@ -313,34 +313,39 @@ main {
 
 .stats-panel {
   display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.9rem;
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 1rem;
-  padding: 1.25rem 1.5rem;
+  padding: 1.25rem 1.1rem;
   box-shadow: var(--shadow);
-}
-
-.stats-top-row {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 1.5rem;
   overflow-x: auto;
 }
 
+/* On desktop the top row's children merge straight into .stats-panel's own
+   flex row, so the whole widget reads as one line; the mobile breakpoint
+   below turns this back into a real box and stacks it under the top row. */
+.stats-top-row {
+  display: contents;
+}
+
 .stats-collected-row {
-  border-top: 1px solid var(--border);
-  padding-top: 0.75rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  flex: none;
 }
 
 .stats-check {
   display: flex;
   align-items: center;
+  flex: none;
   gap: 0.6rem;
   color: var(--muted);
   font-size: 0.85rem;
+  white-space: nowrap;
 }
 
 .stats-check-icon {
@@ -368,12 +373,14 @@ main {
 
 .stats-row {
   display: flex;
-  gap: 1.75rem;
+  flex: none;
+  gap: 1.25rem;
 }
 
 .stats-figure {
   display: flex;
   flex-direction: column;
+  flex: none;
 }
 
 .stats-figure-value {
@@ -382,6 +389,7 @@ main {
   font-weight: 600;
   color: var(--accent);
   line-height: 1.1;
+  white-space: nowrap;
 }
 
 .stats-figure-label {
@@ -389,12 +397,14 @@ main {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--muted);
+  white-space: nowrap;
 }
 
 .stats-trend {
   display: flex;
   align-items: flex-end;
-  gap: 0.3rem;
+  flex: none;
+  gap: 0.2rem;
   height: 2rem;
   margin-left: auto;
 }
@@ -792,8 +802,25 @@ main {
   }
 
   .stats-panel {
+    flex-direction: column;
+    align-items: stretch;
+    overflow-x: visible;
     padding: 1rem;
     gap: 0.75rem;
+  }
+
+  .stats-top-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+    overflow-x: auto;
+  }
+
+  .stats-collected-row {
+    justify-content: center;
+    border-top: 1px solid var(--border);
+    padding-top: 0.75rem;
   }
 
   .stats-check-icon {

@@ -138,7 +138,7 @@ function renderWidget(root) {
         ${recent.length ? `<div class="stats-trend" aria-label="Accuracy trend over recent quizzes">${bars}</div>` : ""}
       </div>
       ${collectionCount !== null ? `
-      <div class="stats-figure stats-collected-row">
+      <div class="stats-collected-row">
         <span class="stats-figure-value">${collectionCount}</span>
         <span class="stats-figure-label">facts collected</span>
       </div>` : ""}
