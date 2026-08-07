@@ -24,8 +24,15 @@ function loadCachedCollectionCount() {
   }
 }
 
+// Local calendar date (not UTC) — must match the date quiz.js keys the
+// completion checkmark and event by, or completions can land on the wrong
+// day near midnight and corrupt the streak / trend history.
 function todayStr() {
-  return new Date().toISOString().slice(0, 10);
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
 }
 
 function addDays(dateStr, delta) {
@@ -113,26 +120,28 @@ function renderWidget(root) {
 
   root.innerHTML = `
     <div class="stats-panel">
-      <div class="stats-check${completedToday ? " is-done" : ""}">
-        <span class="stats-check-icon" aria-hidden="true">${completedToday ? "&check;" : "&#9675;"}</span>
-        <span class="stats-check-label">${completedToday ? "Today's quiz done" : "Quiz not done yet today"}</span>
-      </div>
-      <div class="stats-row">
-        <div class="stats-figure">
-          <span class="stats-figure-value">${streak}</span>
-          <span class="stats-figure-label">day streak</span>
+      <div class="stats-top-row">
+        <div class="stats-check${completedToday ? " is-done" : ""}">
+          <span class="stats-check-icon" aria-hidden="true">${completedToday ? "&check;" : "&#9675;"}</span>
+          <span class="stats-check-label">${completedToday ? "Today's quiz done" : "Quiz not done yet today"}</span>
         </div>
-        <div class="stats-figure">
-          <span class="stats-figure-value">${latest ? `${accuracyOf(latest)}%` : "—"}</span>
-          <span class="stats-figure-label">last score</span>
+        <div class="stats-row">
+          <div class="stats-figure">
+            <span class="stats-figure-value">${streak}</span>
+            <span class="stats-figure-label">day streak</span>
+          </div>
+          <div class="stats-figure">
+            <span class="stats-figure-value">${latest ? `${accuracyOf(latest)}%` : "—"}</span>
+            <span class="stats-figure-label">last score</span>
+          </div>
         </div>
-        ${collectionCount !== null ? `
-        <div class="stats-figure">
-          <span class="stats-figure-value">${collectionCount}</span>
-          <span class="stats-figure-label">facts collected</span>
-        </div>` : ""}
+        ${recent.length ? `<div class="stats-trend" aria-label="Accuracy trend over recent quizzes">${bars}</div>` : ""}
       </div>
-      ${recent.length ? `<div class="stats-trend" aria-label="Accuracy trend over recent quizzes">${bars}</div>` : ""}
+      ${collectionCount !== null ? `
+      <div class="stats-figure stats-collected-row">
+        <span class="stats-figure-value">${collectionCount}</span>
+        <span class="stats-figure-label">facts collected</span>
+      </div>` : ""}
     </div>
   `;
 }

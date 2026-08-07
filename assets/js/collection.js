@@ -114,12 +114,17 @@ async function addToCollection(button) {
     button.textContent = "Added ✓";
 
     const cache = readCache();
-    const ids = cache && cache.uid === user.uid && cache.date === todayKey()
-      ? new Set(cache.ids)
-      : new Set();
-    ids.add(factId);
-    writeCache(user.uid, ids);
-    dispatchCollectionCount(ids.size);
+    if (cache && cache.uid === user.uid && cache.date === todayKey()) {
+      const ids = new Set(cache.ids);
+      ids.add(factId);
+      writeCache(user.uid, ids);
+      dispatchCollectionCount(ids.size);
+    } else {
+      // Cache is missing or stale (new day) — a locally-built set here would
+      // only contain this one fact and silently drop everything collected
+      // earlier, so re-sync against Firestore for the true full list.
+      await syncCollectedState(user);
+    }
   } catch (error) {
     console.error("Could not add fact to collection", error);
     button.classList.remove("is-saving");
