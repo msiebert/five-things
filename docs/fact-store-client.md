@@ -46,6 +46,11 @@ it resolves correctly under the site's `baseurl` both locally
 - If `localStorage` is unavailable (private browsing, quota exceeded), the
   module falls back to the in-memory cache for that page load — it just
   won't survive a reload.
+- `loadFactStore()` and `getAllFacts()` both accept `{ forceRefresh: true }`
+  to bypass the cache and fetch unconditionally. The quiz (`assets/js/quiz.js`)
+  always passes this: a user can collect a fact and quiz themselves within
+  the same day, and the daily TTL alone wouldn't notice the store changed
+  intraday when the morning generation job ran after the cache was written.
 
 ## API
 
