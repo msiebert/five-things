@@ -56,3 +56,12 @@ Myths, legends, and folklore from cultures around the world.
 
 ### space
 Astronomy, spaceflight, and the physics of the universe beyond Earth.
+
+### animals
+Wildlife, animal behavior, and the biology of creatures around the world.
+
+### food
+Culinary history, food science, and cultural food traditions.
+
+### nature
+Geology, weather, oceans, and the natural landscapes and phenomena of Earth.
