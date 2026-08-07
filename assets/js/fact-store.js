@@ -101,8 +101,13 @@ export async function getFact(id) {
 
 // Returns every fact in the store, for callers (like the quiz) that
 // need to draw a random sample rather than look up specific IDs.
-export async function getAllFacts() {
-  const store = await loadFactStore();
+//
+// Pass { forceRefresh: true } for callers where a same-day-stale cache
+// would silently drop facts a user just acted on (e.g. the quiz, right
+// after they've collected a fact published earlier that day) — see
+// docs/fact-store-client.md#caching-and-invalidation.
+export async function getAllFacts({ forceRefresh = false } = {}) {
+  const store = await loadFactStore({ forceRefresh });
   return Object.values(store.facts).map((fact) => ({
     ...fact,
     explanationUrl: explanationUrl(fact.id),

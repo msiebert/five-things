@@ -62,7 +62,11 @@ function weightedSample(items, weights, n) {
 }
 
 async function drawQuestions(userDoc) {
-  const allFacts = await getAllFacts();
+  // Force a fresh fetch rather than trusting the once-per-day cache: a user
+  // can collect a fact and come straight to the quiz within the same day,
+  // and a stale cached store would silently drop it from the pool even
+  // though it's correctly in their `collected` list.
+  const allFacts = await getAllFacts({ forceRefresh: true });
   const collectedIds = new Set((userDoc.collected || []).map((e) => e.id));
   const pool = allFacts.filter((fact) => collectedIds.has(fact.id));
   const missedMap = toMap(userDoc.recentlyMissed);
