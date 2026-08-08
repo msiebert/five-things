@@ -257,6 +257,22 @@ main {
   color: var(--accent);
 }
 
+/* Home: discover (random old entry) card */
+
+.discover {
+  margin-bottom: 3rem;
+}
+
+.discover-card {
+  border-color: var(--accent-soft);
+  border-style: dashed;
+}
+
+.discover-eyebrow {
+  margin: 0;
+  color: var(--accent-soft);
+}
+
 /* Home: archive list */
 
 .archive {
