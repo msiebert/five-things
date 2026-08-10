@@ -18,5 +18,5 @@ full read/write contract.
 
 ## Current state
 
-- **last_category**: nature
-- **last_run_date**: 2026-08-09
+- **last_category**: history
+- **last_run_date**: 2026-08-10
