@@ -6,17 +6,21 @@ date: 2026-08-13
 topic: "Mansa Musa"
 facts:
   - id: "2026-08-13-1"
-    question: "About how many people traveled with Mansa Musa in his 1324 pilgrimage caravan to Mecca?"
-    answer: "60000"
+    question: "What 14th-century emperor of the Mali Empire is generally regarded as the wealthiest person in recorded history, thanks to his realm's near-monopoly on West African gold and salt trade routes?"
+    answer: "Mansa Musa"
     topic: famous-people
     explanation: >-
-      When Mansa Musa, ruler of the Mali Empire, set out on his hajj in
-      1324, he didn't travel light. Chroniclers describe a caravan of
-      roughly 60,000 people, including soldiers, officials, and enslaved
-      attendants, along with dozens of camels carrying gold. The sheer
-      scale of the procession turned what was meant as a religious
-      pilgrimage into a moving spectacle that announced Mali's wealth and
-      power to every city it passed through.
+      Mansa Musa ruled the Mali Empire in West Africa from roughly 1312 to
+      1337, presiding over a state that stretched across much of the Sahel
+      and controlled its most valuable trade routes. Mali is thought to
+      have supplied close to half the world's gold at the time, and that
+      near-monopoly made Musa so wealthy that modern rankings still list
+      him as arguably the richest individual in history, with a fortune
+      too large to meaningfully convert into today's dollars. He's best
+      known outside Mali for a single event: a 1324 pilgrimage to Mecca so
+      extravagant that it left a trail of records, legends, and even a
+      European map still shaping how historians reconstruct medieval West
+      African history today.
   - id: "2026-08-13-2"
     question: "Mansa Musa's lavish gold spending during a stopover devalued the currency of what city for over a decade afterward?"
     answer: "Cairo"
