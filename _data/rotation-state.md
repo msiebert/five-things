@@ -18,5 +18,5 @@ full read/write contract.
 
 ## Current state
 
-- **last_category**: geography
-- **last_run_date**: 2026-08-12
+- **last_category**: famous-people
+- **last_run_date**: 2026-08-13
