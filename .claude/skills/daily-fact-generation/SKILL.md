@@ -77,10 +77,20 @@ Run these steps in order. Do not skip or reorder them.
 ### 2. Research the topic
 
 1. Perform web research on the chosen topic.
-2. From that research, select the 5 most **notable and influential** facts
-   about it — but explicitly favor genuine learning over trivia the reader
-   almost certainly already knows. This is a daily "I actually learned
-   something" product, not an elementary-school quiz.
+2. Decide whether the topic is **well-known** — something most readers
+   could already place without help (e.g. Jupiter, the Great Wall,
+   Shakespeare) — or **not well-known** — something most readers would not
+   be able to say what it even is on sight (e.g. Mansa Musa, Point Nemo).
+   When in doubt, treat it as not well-known: the grounding fact costs
+   little and the failure mode of assuming too much prior knowledge is
+   worse.
+3. If the topic is **not well-known** (per step 2), the first of the 5
+   facts is a **grounding/summary fact** rather than a "notable and
+   influential" one — see step 3 below for how it's written. Select the
+   remaining 4 (well-known topics: all 5) as the most **notable and
+   influential** facts about it — but explicitly favor genuine learning
+   over trivia the reader almost certainly already knows. This is a daily
+   "I actually learned something" product, not an elementary-school quiz.
    - Reject candidates that are common knowledge or the first thing anyone
      would say about the topic (e.g., for "Jupiter": "it's the largest
      planet" is too obvious to use).
@@ -96,7 +106,7 @@ Run these steps in order. Do not skip or reorder them.
    - Still avoid true obscurity/trivia-for-trivia's-sake — each fact should
      be something a reasonably informed person would recognize as
      important once they read it, even if they didn't know it before.
-3. Before finalizing each candidate fact, check `assets/data/facts.jsonl` for
+4. Before finalizing each candidate fact, check `assets/data/facts.jsonl` for
    similar `question`/`answer` text via a **keyword grep** on distinctive
    terms from the candidate (e.g. `grep -i "great red spot"
    assets/data/facts.jsonl`), not a full-file read — see Context discipline
@@ -123,6 +133,27 @@ For each of the 5 facts, write:
   this is where the interesting, non-obvious detail actually lives, since
   the question/answer pair itself is now deliberately terse. Assume the
   reader wants to actually learn something, not just check a fact.
+
+**If the topic was assessed as not well-known (step 2.2), fact 1 is a
+grounding fact instead of a "notable and influential" one:**
+
+- Its **question** describes/identifies the topic itself (e.g. "What
+  14th-century West African emperor was so fabulously wealthy his Cairo
+  pilgrimage is said to have devalued gold in the region for years?" or
+  "What's the name for the point in the ocean farthest from any land?"),
+  written so it reads naturally as a definition or identifying
+  description of the subject, not as a fact *about* the subject.
+- Its **answer** is the topic itself, in the same short form used
+  elsewhere on the site (e.g. `Mansa Musa`, `Point Nemo`).
+- Its **explanatory paragraph** gives the basic orienting context (who/what
+  it is, when/where, why it matters) that facts 2-5 will build on — this
+  is the paragraph that makes the rest of the day's facts make sense to a
+  reader who has never heard of the topic before.
+
+This keeps every other fact that day free to go straight to the
+interesting, non-obvious material, while the reader is still grounded in
+what the five facts are actually about. Well-known topics skip this
+entirely — all 5 facts follow the normal notable-fact format above.
 
 ### 4. Append to the fact store
 
@@ -211,7 +242,7 @@ These are explicitly out of scope for this skill and tracked as open
 questions elsewhere (no need to chase them down during a run):
 
 - **Duplicate avoidance** is a simple keyword search against
-  `assets/data/facts.jsonl` (step 2.3) plus picking a topic distinct from
+  `assets/data/facts.jsonl` (step 2.4) plus picking a topic distinct from
   category peers (step 1.4). There is no semantic similarity check or
   guaranteed non-duplication — a near-duplicate fact could still slip
   through.
