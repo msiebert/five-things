@@ -129,6 +129,16 @@ For each of the 5 facts, write:
   "What computer brand ran the whole early Web?" → `NeXT`, rather than
   asking for a whole sentence about the setup) — the depth still goes in
   the explanatory paragraph, not the answer field.
+  Separately, avoid answers that are opaque catalog/technical
+  designations (e.g. `PSR J1748-2446ad`, `GW170817`, `NGC 6121`) — these
+  are unambiguous but unmemorable and give the reader nothing to hold
+  onto. If the fact's hook is inherently tied to something like this,
+  don't put the code itself in the answer field: pick the more
+  meaningful, memorable term from the same fact instead — a number, a
+  named process or concept, a place, or a proper name — and reshape the
+  question to ask for that instead. Reserve designations like this for
+  use *inside* the question text or explanation, never as the thing the
+  reader has to type.
 - An **explanatory paragraph** (3-6 sentences) that gives real context —
   this is where the interesting, non-obvious detail actually lives, since
   the question/answer pair itself is now deliberately terse. Assume the

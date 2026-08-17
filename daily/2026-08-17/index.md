@@ -33,18 +33,18 @@ facts:
       meaningful fraction of the speed of light. Only a black hole packs
       matter more densely without erasing it entirely.
   - id: "2026-08-17-3"
-    question: "What pulsar, spinning about 716 times per second, is the fastest-rotating neutron star known?"
-    answer: "PSR J1748-2446ad"
+    question: "What general class of super-fast-spinning neutron stars — which reach such speeds by siphoning matter and angular momentum from a companion star over millions of years — is exemplified by the record holder PSR J1748-2446ad, spinning about 716 times a second?"
+    answer: "Millisecond pulsar"
     topic: space
     explanation: >-
-      Discovered in 2004 in the globular cluster Terzan 5 using the Green
-      Bank Telescope, PSR J1748-2446ad completes a full rotation in about
-      1.4 milliseconds — roughly 43,000 revolutions per minute. At that
-      spin rate, a point on its equator is moving at close to a quarter of
-      the speed of light. Such "millisecond pulsars" reach these speeds by
-      siphoning matter and angular momentum from a companion star over
-      millions of years, spinning up an old, otherwise slowing neutron star
-      like a top.
+      Millisecond pulsars are old neutron stars that get spun back up to
+      dizzying speeds by siphoning matter and angular momentum from a
+      companion star over millions of years, like a top given repeated
+      flicks. The fastest known example, PSR J1748-2446ad, was discovered
+      in 2004 in the globular cluster Terzan 5 using the Green Bank
+      Telescope: it completes a full rotation in about 1.4 milliseconds —
+      roughly 43,000 revolutions per minute — fast enough that a point on
+      its equator moves at close to a quarter of the speed of light.
   - id: "2026-08-17-4"
     question: "What type of neutron star, with a magnetic field trillions of times stronger than Earth's, unleashed a December 2004 flare so powerful it measurably disturbed Earth's ionosphere from 50,000 light-years away?"
     answer: "Magnetar"
@@ -62,18 +62,20 @@ facts:
       believed to be triggered by sudden fractures, or "starquakes," in
       their ultra-rigid crusts.
   - id: "2026-08-17-5"
-    question: "What gravitational-wave event from a 2017 neutron-star merger confirmed that such collisions forge heavy elements like gold and platinum?"
-    answer: "GW170817"
+    question: "What runaway nuclear process, fueled by the neutron-rich debris of colliding neutron stars, is responsible for forging heavy elements like gold and platinum?"
+    answer: "r-process"
     topic: space
     explanation: >-
-      On August 17, 2017, LIGO and Virgo detected gravitational waves from
-      two colliding neutron stars, and within seconds telescopes around the
-      world caught the collision's afterglow in gamma rays and visible
-      light from a galaxy about 130 million light-years away. The event
-      confirmed a long-standing theory: that the extreme, neutron-rich
-      environment of a neutron-star merger is where "r-process"
-      nucleosynthesis can forge the universe's heaviest elements. Astronomers
-      estimated the collision produced roughly an Earth's mass worth of
-      gold alone, offering a real answer to where precious metals like gold
-      and platinum actually come from.
+      The extreme, neutron-rich debris flung out by a neutron-star merger
+      is one of the few places in the universe extreme enough for
+      "r-process" (rapid neutron-capture) nucleosynthesis, where atomic
+      nuclei absorb neutrons faster than they can decay, building up into
+      the universe's heaviest elements. This was confirmed on August 17,
+      2017, when LIGO and Virgo detected gravitational waves from two
+      colliding neutron stars — event GW170817 — and telescopes around the
+      world caught the collision's afterglow within seconds, in a galaxy
+      about 130 million light-years away. Astronomers estimated the
+      collision produced roughly an Earth's mass worth of gold alone,
+      offering a real answer to where precious metals like gold and
+      platinum actually come from.
 ---
