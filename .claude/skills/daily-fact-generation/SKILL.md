@@ -143,6 +143,21 @@ For each of the 5 facts, write:
   this is where the interesting, non-obvious detail actually lives, since
   the question/answer pair itself is now deliberately terse. Assume the
   reader wants to actually learn something, not just check a fact.
+- **Never leak the answer in the question.** The answer term must not
+  appear verbatim anywhere in the question text (e.g. don't ask "What
+  jelly-like substance, a form of hyaluronan..." when the answer is
+  `Hyaluronan`). Also watch for the softer version of this: a question
+  phrased so its own words, recombined, spell out the answer even though
+  the answer term itself never appears (e.g. asking "What sensation,
+  caused by acid, do naked mole-rats not feel?" when the answer is `Acid
+  pain` — a reader can assemble "acid" + "pain" straight from the question
+  without knowing anything about the topic). Before finalizing each
+  question, check whether someone who's never seen the answer could still
+  produce it just by recombining words already sitting in the question; if
+  so, rewrite the question around a different descriptive angle, cause, or
+  mechanism detail instead of the answer's own components. This check
+  applies to the grounding-fact question format below too, even though
+  that format is intentionally definitional in style.
 
 **If the topic was assessed as not well-known (step 2.2), fact 1 is a
 grounding fact instead of a "notable and influential" one:**

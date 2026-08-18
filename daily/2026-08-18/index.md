@@ -6,7 +6,7 @@ date: 2026-08-18
 topic: "Naked Mole-Rats"
 facts:
   - id: "2026-08-18-1"
-    question: "What jelly-like substance in naked mole-rat skin, a form of hyaluronan over five times larger than the human version, is credited with making the species nearly immune to cancer?"
+    question: "What oversized, jelly-like sugar polymer, secreted by naked mole-rat skin cells in a form over five times larger than the human version, is credited with making the species nearly immune to cancer?"
     answer: "Hyaluronan"
     topic: animals
     explanation: >-
@@ -52,7 +52,7 @@ facts:
       behavioral dominance, and if she dies, a fierce struggle among the
       workers determines who takes her place.
   - id: "2026-08-18-4"
-    question: "What sensation, caused by acid, do naked mole-rats not feel, letting them shrug off the carbon dioxide buildup in their crowded, poorly ventilated tunnels?"
+    question: "What kind of sensation do naked mole-rats fail to feel, thanks to a mutated sodium channel, letting them shrug off the carbon dioxide buildup in their crowded, poorly ventilated tunnels?"
     answer: "Acid pain"
     topic: animals
     explanation: >-
