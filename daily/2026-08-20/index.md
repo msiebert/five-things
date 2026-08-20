@@ -21,7 +21,7 @@ facts:
       its moisture as heavy rain or snow. They are the workhorses of the
       water cycle: often gentle and beneficial, occasionally catastrophic.
   - id: "2026-08-20-2"
-    question: "Two researchers coined the now-standard term for these airborne moisture ribbons in the early 1990s, choosing wording that stressed how slender they are relative to their length. At what university did they work?"
+    question: "Two researchers coined the term \"atmospheric river\" in the early 1990s, choosing wording that stressed how slender these moisture corridors are relative to their length. At what university did they work?"
     answer: "MIT"
     topic: nature
     explanation: >-
@@ -35,7 +35,7 @@ facts:
       because it captured both the narrowness and the sheer volume of water
       being moved.
   - id: "2026-08-20-3"
-    question: "An average one of these moisture corridors transports roughly 7 to 15 times as much water as pours from the mouth of which North American river, the largest by discharge in the United States?"
+    question: "An average atmospheric river transports roughly 7 to 15 times as much water as pours from the mouth of which North American river, the largest by discharge in the United States?"
     answer: "Mississippi"
     topic: nature
     explanation: >-
@@ -49,7 +49,7 @@ facts:
       Tigris, Euphrates, Karun, and Karkheh rivers. Roughly 90 percent of the
       flood damage in the western United States traces back to these storms.
   - id: "2026-08-20-4"
-    question: "One winter in the early 1860s, a weeks-long parade of these storms turned California's Central Valley into an inland sea up to 300 miles long, bankrupting the young state and driving its legislature out of a flooded Sacramento; the USGS later modeled its 'ARkStorm' megaflood scenario on it. In what year did that flooding peak?"
+    question: "One winter in the early 1860s, a weeks-long parade of atmospheric rivers turned California's Central Valley into an inland sea up to 300 miles long, bankrupting the young state and driving its legislature out of a flooded Sacramento; the USGS later modeled its 'ARkStorm' megaflood scenario on it. In what year did that flooding peak?"
     answer: "1862"
     topic: nature
     explanation: >-
@@ -64,7 +64,7 @@ facts:
       "ARkStorm" scenario — a modeled modern repeat — projects damages of
       $725 billion to $1 trillion, more than a major urban earthquake.
   - id: "2026-08-20-5"
-    question: "The intensity scale for these storms unveiled in 2019 borrows the hurricane scale's 1-to-5 categories but adds a variable hurricanes ignore: a strong storm is bumped up a category when it stalls over one area past 48 hours. What is that added variable?"
+    question: "The intensity scale for atmospheric rivers unveiled in 2019 borrows the hurricane scale's 1-to-5 categories but adds a variable hurricanes ignore: a strong storm is bumped up a category when it stalls over one area past 48 hours. What is that added variable?"
     answer: "Duration"
     topic: nature
     explanation: >-

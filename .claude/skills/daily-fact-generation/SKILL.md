@@ -143,21 +143,32 @@ For each of the 5 facts, write:
   this is where the interesting, non-obvious detail actually lives, since
   the question/answer pair itself is now deliberately terse. Assume the
   reader wants to actually learn something, not just check a fact.
-- **Never leak the answer in the question.** The answer term must not
-  appear verbatim anywhere in the question text (e.g. don't ask "What
-  jelly-like substance, a form of hyaluronan..." when the answer is
-  `Hyaluronan`). Also watch for the softer version of this: a question
-  phrased so its own words, recombined, spell out the answer even though
-  the answer term itself never appears (e.g. asking "What sensation,
-  caused by acid, do naked mole-rats not feel?" when the answer is `Acid
-  pain` — a reader can assemble "acid" + "pain" straight from the question
-  without knowing anything about the topic). Before finalizing each
-  question, check whether someone who's never seen the answer could still
-  produce it just by recombining words already sitting in the question; if
-  so, rewrite the question around a different descriptive angle, cause, or
-  mechanism detail instead of the answer's own components. This check
-  applies to the grounding-fact question format below too, even though
-  that format is intentionally definitional in style.
+- **Never leak the answer in the question — but only that fact's own
+  answer.** A fact's question must not contain, verbatim, *that same
+  fact's* answer term (e.g. don't ask "What jelly-like substance, a form
+  of hyaluronan..." when the answer is `Hyaluronan`). Also watch for the
+  softer version of this: a question phrased so its own words, recombined,
+  spell out the answer even though the answer term itself never appears
+  (e.g. asking "What sensation, caused by acid, do naked mole-rats not
+  feel?" when the answer is `Acid pain` — a reader can assemble "acid" +
+  "pain" straight from the question without knowing anything about the
+  topic). Before finalizing each question, check whether someone who's
+  never seen the answer could still produce it just by recombining words
+  already sitting in that question; if so, rewrite the question around a
+  different descriptive angle, cause, or mechanism detail instead of the
+  answer's own components. This check applies to the grounding-fact
+  question format below too, even though that format is intentionally
+  definitional in style.
+  - **This restriction is per-fact, not day-wide.** When the day's topic
+    itself is the answer to one fact (typically fact 1, the grounding
+    fact), only *that fact's* question needs to dance around the term.
+    The other 4 facts should refer to the topic by its normal name
+    whenever that's the clearest wording — avoiding it there just because
+    some other fact's answer happens to be the same term produces
+    awkward, vaguer questions ("these moisture corridors," "these
+    storms") for no benefit, since naming the topic doesn't leak an
+    answer it isn't. Only avoid a term in a given fact's question when
+    that term *is that fact's own answer*.
 
 **If the topic was assessed as not well-known (step 2.2), fact 1 is a
 grounding fact instead of a "notable and influential" one:**
