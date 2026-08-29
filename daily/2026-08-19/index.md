@@ -63,7 +63,7 @@ facts:
       vanillin" is still produced and prized by some manufacturers for a
       fuller flavor profile.
   - id: "2026-08-19-5"
-    question: "What do some Madagascar farmers prick into their still-green pods with a needle, as a kind of brand-like signature to deter theft during harvest season?"
+    question: "What do some Madagascar farmers prick into their still-green vanilla pods with a needle, as a kind of brand-like signature to deter theft during harvest season?"
     answer: "Tattoos"
     topic: food
     explanation: >-

@@ -21,7 +21,7 @@ facts:
       loom is now seen as an early ancestor of programmable computing,
       decades before anything resembling a modern computer existed.
   - id: "2026-08-25-2"
-    question: "What earlier French inventor, working decades before this loom's creation, first used a punched paper roll to automate a loom's weaving pattern, laying the groundwork it was built on?"
+    question: "What earlier French inventor, working decades before the Jacquard loom's creation, first used a punched paper roll to automate a loom's weaving pattern, laying the groundwork it was built on?"
     answer: "Jacques de Vaucanson"
     topic: technology
     explanation: >-
@@ -34,7 +34,7 @@ facts:
       studied and refined Vaucanson's design decades later, swapping the
       fragile paper roll for a sturdier chain of punched cards.
   - id: "2026-08-25-3"
-    question: "In what French silk-weaving city did workers, fearing the new machine would destroy their livelihoods, reportedly smash the looms and burn its inventor in effigy in the early 1800s?"
+    question: "In what French silk-weaving city did workers, fearing the new Jacquard loom would destroy their livelihoods, reportedly smash the looms and burn Jacquard's effigy in the early 1800s?"
     answer: "Lyon"
     topic: technology
     explanation: >-
@@ -48,7 +48,7 @@ facts:
       Jacquard was later erected in Lyon on the spot where his machine had
       been destroyed.
   - id: "2026-08-25-4"
-    question: "About how many punched cards, each capable of over 1,000 hole positions, were reportedly needed to weave one particularly detailed silk portrait using this card-controlled technique?"
+    question: "About how many punched cards, each capable of over 1,000 hole positions, were reportedly needed to weave one particularly detailed silk portrait using the Jacquard loom's card-controlled technique?"
     answer: "24,000"
     topic: technology
     explanation: >-
@@ -61,7 +61,7 @@ facts:
       mistaken for an engraving, and copies were sent to dignitaries
       including Charles Babbage as proof of the method's power.
   - id: "2026-08-25-5"
-    question: "What British mathematician, writing in 1843 about Charles Babbage's proposed Analytical Engine, compared its algebraic calculations to the way this loom \"weaves flowers and leaves\"?"
+    question: "What British mathematician, writing in 1843 about Charles Babbage's proposed Analytical Engine, compared its algebraic calculations to the way the Jacquard loom \"weaves flowers and leaves\"?"
     answer: "Ada Lovelace"
     topic: technology
     explanation: >-

@@ -21,7 +21,7 @@ facts:
       facts dig into what makes this stretch of desert so geologically
       strange.
   - id: "2026-08-23-2"
-    question: "What geological term describes the point beneath this depression where the Nubian, Somali, and Arabian tectonic plates are pulling apart, in a process expected to eventually flood the rift and form a new ocean?"
+    question: "What geological term describes the point beneath the Danakil Depression where the Nubian, Somali, and Arabian tectonic plates are pulling apart, in a process expected to eventually flood the rift and form a new ocean?"
     answer: "Triple junction"
     topic: geography
     explanation: >-
@@ -33,7 +33,7 @@ facts:
       turning this scorching desert into seafloor and giving the Horn of
       Africa a new coastline millions of years from now.
   - id: "2026-08-23-3"
-    question: "What geothermal field in the depression, with pools so acidic they sit near pH 0 and vivid yellow-green mineral crusts, draws scientists searching for microbial life that could hint at how organisms might survive on Mars?"
+    question: "What geothermal field in the Danakil Depression, with pools so acidic they sit near pH 0 and vivid yellow-green mineral crusts, draws scientists searching for microbial life that could hint at how organisms might survive on Mars?"
     answer: "Dallol"
     topic: geography
     explanation: >-
@@ -46,7 +46,7 @@ facts:
       anyway, which is why astrobiologists study the site as a rough analog
       for what life might look like on Mars or other hostile worlds.
   - id: "2026-08-23-4"
-    question: "What shield volcano in the depression, whose Afar-language name translates to 'smoking mountain,' holds one of the world's few permanent lava lakes?"
+    question: "What shield volcano in the Danakil Depression, whose Afar-language name translates to 'smoking mountain,' holds one of the world's few permanent lava lakes?"
     answer: "Erta Ale"
     topic: geography
     explanation: >-
@@ -58,7 +58,7 @@ facts:
       language and roughly translates to "smoking mountain," a fitting
       description for a peak that glows visibly at night.
   - id: "2026-08-23-5"
-    question: "What name was given to the standardized bars of salt, cut from the depression's flats and carried out by camel caravan, that once circulated as a form of currency across highland Ethiopia?"
+    question: "What name was given to the standardized bars of salt, cut from the Danakil Depression's flats and carried out by camel caravan, that once circulated as a form of currency across highland Ethiopia?"
     answer: "Amole"
     topic: geography
     explanation: >-

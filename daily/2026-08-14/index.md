@@ -20,7 +20,7 @@ facts:
       engineering complexity is known to have been built again for well over
       a thousand years.
   - id: "2026-08-14-2"
-    question: "What ancient eclipse-prediction cycle of 223 lunar months was mechanically encoded in the mechanism's spiral back dial?"
+    question: "What ancient eclipse-prediction cycle of 223 lunar months was mechanically encoded in the Antikythera mechanism's spiral back dial?"
     answer: "Saros"
     topic: technology
     explanation: >-
@@ -32,7 +32,7 @@ facts:
       the next solar or lunar eclipse was due, and inscriptions on the dial
       even flagged the expected type and timing of each one.
   - id: "2026-08-14-3"
-    question: "What four-year Panhellenic athletic cycle, including the games at Olympia, did one of the mechanism's small front dials track?"
+    question: "What four-year Panhellenic athletic cycle, including the games at Olympia, did one of the Antikythera mechanism's small front dials track?"
     answer: "Olympiad"
     topic: technology
     explanation: >-
@@ -44,7 +44,7 @@ facts:
       with reflectance imaging, showing the device doubled as a civic
       calendar for the games that structured Greek public life.
   - id: "2026-08-14-4"
-    question: "How many surviving bronze gears did modern X-ray and CT imaging reveal packed inside the corroded mechanism?"
+    question: "How many surviving bronze gears did modern X-ray and CT imaging reveal packed inside the corroded Antikythera mechanism?"
     answer: "30"
     topic: technology
     explanation: >-
@@ -56,7 +56,7 @@ facts:
       millimeter apart, and researchers believe the complete original
       mechanism held even more.
   - id: "2026-08-14-5"
-    question: "Whose ancient theory of the Moon's uneven orbital speed did the mechanism model more accurately than any written astronomy for centuries after, using a clever pin-and-slot gear?"
+    question: "Whose ancient theory of the Moon's uneven orbital speed did the Antikythera mechanism model more accurately than any written astronomy for centuries after, using a clever pin-and-slot gear?"
     answer: "Hipparchus"
     topic: technology
     explanation: >-

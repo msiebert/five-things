@@ -21,7 +21,7 @@ facts:
       about 30 of the roughly 150 people aboard. It lay largely forgotten on
       the seafloor for more than three centuries.
   - id: "2026-08-21-2"
-    question: "About how many minutes after setting sail did a gust of wind heel the ship far enough over for water to pour through its open gun ports and send it to the bottom?"
+    question: "About how many minutes after setting sail did a gust of wind heel the Vasa far enough over for water to pour through its open gun ports and send it to the bottom?"
     answer: "20"
     topic: history
     explanation: >-
@@ -37,7 +37,7 @@ facts:
       ceremonial salute, and it sank within minutes in full view of the
       crowd.
   - id: "2026-08-21-3"
-    question: "What Swedish engineer spent years combing naval archives and dragging a homemade grapple through Stockholm harbor before locating the wreck in 1956?"
+    question: "What Swedish engineer spent years combing naval archives and dragging a homemade grapple through Stockholm harbor before locating the wreck of the Vasa in 1956?"
     answer: "Anders Franzen"
     topic: history
     explanation: >-
@@ -51,7 +51,7 @@ facts:
       32 meters of water. His discovery set off the five-year campaign that
       culminated in the ship's raising in 1961.
   - id: "2026-08-21-4"
-    question: "What wood-boring mollusk, common in full-strength seawater but unable to tolerate the Baltic's low salt content, is the main reason the hull survived on the seabed for over three centuries?"
+    question: "What wood-boring mollusk, common in full-strength seawater but unable to tolerate the Baltic's low salt content, is the main reason the Vasa's hull survived on the seabed for over three centuries?"
     answer: "Shipworm"
     topic: history
     explanation: >-
@@ -65,7 +65,7 @@ facts:
       percent of Vasa's original timber survive intact, an extraordinarily
       high figure for a wooden ship of its age.
   - id: "2026-08-21-5"
-    question: "What corrosive substance is now slowly forming inside the raised ship's timbers, as sulfur compounds absorbed from centuries in the anoxic mud oxidize with the help of iron leaching from its corroding bolts?"
+    question: "What corrosive substance is now slowly forming inside the raised Vasa's timbers, as sulfur compounds absorbed from centuries in the anoxic mud oxidize with the help of iron leaching from its corroding bolts?"
     answer: "Sulfuric acid"
     topic: history
     explanation: >-
