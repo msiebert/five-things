@@ -18,5 +18,5 @@ full read/write contract.
 
 ## Current state
 
-- **last_category**: space
-- **last_run_date**: 2026-08-28
+- **last_category**: animals
+- **last_run_date**: 2026-08-29
