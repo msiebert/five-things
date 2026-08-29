@@ -169,6 +169,24 @@ For each of the 5 facts, write:
     storms") for no benefit, since naming the topic doesn't leak an
     answer it isn't. Only avoid a term in a given fact's question when
     that term *is that fact's own answer*.
+- **Every question must stand alone, with no pronoun or vague-article
+  reference back to another fact.** Each of the 5 facts is shown
+  individually in the quiz UI (one card at a time, in random order,
+  outside the context of the other 4), so a question can never lean on
+  "this depression," "the mechanism," "the loom," "the novel," "the
+  ship," "his," "its," or similar back-references that only resolve by
+  having already read a different fact's question that day. Name the
+  actual proper noun (the topic, a person, a place, a specific object)
+  in every question that needs it, even if that means repeating the same
+  name across all 5 questions for the day. This is different from the
+  leaked-answer rule above: naming the day's topic is required here
+  except in the one fact whose own answer *is* that name (typically the
+  grounding fact) — there, write the question so it still identifies the
+  topic uniquely through description, just without the term itself (see
+  the leaked-answer rule and the grounding-fact format below). Before
+  finalizing each question, reread it in isolation, as if it were the
+  only fact on the page, and confirm a reader could tell exactly what
+  it's about without having seen the other 4.
 
 **If the topic was assessed as not well-known (step 2.2), fact 1 is a
 grounding fact instead of a "notable and influential" one:**

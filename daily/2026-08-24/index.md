@@ -46,7 +46,7 @@ facts:
       year, one of the starkest natural experiments in the history of
       medicine.
   - id: "2026-08-24-4"
-    question: "What term, now used across science and medicine generally, describes the reflexive rejection of new evidence that contradicts accepted belief — the very reaction his hand-hygiene findings met from his own colleagues?"
+    question: "What term, now used across science and medicine generally, describes the reflexive rejection of new evidence that contradicts accepted belief — the very reaction Semmelweis's hand-hygiene findings met from his own colleagues?"
     answer: "Semmelweis reflex"
     topic: famous-people
     explanation: >-
@@ -59,7 +59,7 @@ facts:
       belief — now applied well beyond medicine, to any field where
       established experts resist an inconvenient discovery.
   - id: "2026-08-24-5"
-    question: "What blood infection, the same broad category of illness he'd devoted his career to preventing, ultimately killed him two weeks after he was committed to an asylum and allegedly beaten by guards?"
+    question: "What blood infection, the same broad category of illness Semmelweis had devoted his career to preventing, ultimately killed him two weeks after he was committed to an asylum and allegedly beaten by guards?"
     answer: "Sepsis"
     topic: famous-people
     explanation: >-

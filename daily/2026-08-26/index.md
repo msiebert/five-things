@@ -33,7 +33,7 @@ facts:
       and recognizable whale years before he combined that image with the
       Essex disaster to create his fictional antagonist.
   - id: "2026-08-26-3"
-    question: "What crucial closing section of the novel did Melville's British publisher, releasing the book as 'The Whale,' accidentally omit — leaving British reviewers baffled about how a narrator who seemingly died with the ship could have told the story?"
+    question: "What crucial closing section of Moby-Dick did Melville's British publisher, releasing the book as 'The Whale,' accidentally omit — leaving British reviewers baffled about how a narrator who seemingly died with the ship could have told the story?"
     answer: "Epilogue"
     topic: arts
     explanation: >-
@@ -47,7 +47,7 @@ facts:
       story — and used it as evidence the book was carelessly written,
       unaware the American edition published weeks later resolved it.
   - id: "2026-08-26-4"
-    question: "What name is given to the surge of critical and popular interest in the author's work during the 1920s, decades after his 1891 death, that rescued Moby-Dick from near-obscurity?"
+    question: "What name is given to the surge of critical and popular interest in Melville's work during the 1920s, decades after his 1891 death, that rescued Moby-Dick from near-obscurity?"
     answer: "Melville Revival"
     topic: arts
     explanation: >-

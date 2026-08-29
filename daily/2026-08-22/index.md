@@ -22,7 +22,7 @@ facts:
       in sheep, chronic wasting disease in deer, and bovine spongiform
       encephalopathy, better known as mad cow disease, in cattle.
   - id: "2026-08-22-2"
-    question: "What caustic chemical, alongside prolonged high-temperature autoclaving well beyond routine hospital settings, is one of the few treatments known to reliably destroy this agent clinging to surgical instruments?"
+    question: "What caustic chemical, alongside prolonged high-temperature autoclaving well beyond routine hospital settings, is one of the few treatments known to reliably destroy prions clinging to surgical instruments?"
     answer: "Sodium hydroxide"
     topic: science
     explanation: >-

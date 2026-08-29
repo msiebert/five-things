@@ -30,7 +30,7 @@ facts:
       described his body as twisted out of shape by the years of awkward
       posture.
   - id: "2026-08-04-3"
-    question: "What art form did Michelangelo consider his true calling, having resented being pulled off a tomb commission to paint the ceiling instead?"
+    question: "What art form did Michelangelo consider his true calling, having resented being pulled off a tomb commission to paint the Sistine Chapel ceiling instead?"
     answer: "Sculpture"
     topic: arts
     explanation: >-
@@ -52,7 +52,7 @@ facts:
       other figures, all part of a scheme far more elaborate than what
       Michelangelo was originally commissioned to paint.
   - id: "2026-08-04-5"
-    question: "About how many individual figures did Michelangelo ultimately paint across the ceiling, far beyond the dozen apostles he was originally asked for?"
+    question: "About how many individual figures did Michelangelo ultimately paint across the Sistine Chapel ceiling, far beyond the dozen apostles he was originally asked for?"
     answer: "300"
     topic: arts
     explanation: >-
